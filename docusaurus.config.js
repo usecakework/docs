@@ -12,7 +12,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.png',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -49,8 +49,8 @@ const config = {
       navbar: {
         title: 'cakework docs!',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'Logo',
+          src: 'img/cakework_logo.png',
         },
         items: [
           {
@@ -61,25 +61,20 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
+        style: 'light',
         links: [        
-          {
-            title: 'Let\'s chat <3',
-            items: [
-              {
-                label: 'hello@cakework.com',
-                href: 'mailto:hello@cakework.com',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/usecakework',
-              },
-            ],
-          }
+            {
+              label: 'GitHub',
+              href: 'https://github.com/usecakework',
+            },
+            {
+              label: 'Discord',
+              href: 'https://discord.gg/yB6GvheDcP',
+            },
+            {
+              label: 'Email',
+              href: 'mailto:eric@cakework.com',
+            },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Sahale, Inc.`,
       },
