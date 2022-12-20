@@ -1,26 +1,21 @@
 # Commands
 The ```cakework``` command is the primary way of interacting with Cakework.
 
-### ```cakework init```
+### ```cakework new```
 Initialize a new Cakework app.
 
-**Usage**
 ```
-cakework init [options]
+cakework new <appName> <language>
 ```
 
-**Options**
-```
-```
+| Argument | Required | Description |
+| --- | --- | --- |
+| ```appName``` | Yes | Name of the app to create. This is used to reference your app and must be unique. |
+| ```language``` | Yes | Language of the app to create. Currently, only ```python``` is supported. |
 
 ### ```cakework start```
 Start running a Cakework app.
 
-**Usage**
 ```
-cakework start [options]
-```
-
-**Options**
-```
+cakework start
 ```

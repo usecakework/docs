@@ -37,6 +37,28 @@ const sidebars = {
             }
           ],
           collapsed: false,
+        },
+        {
+          type: 'category',
+          label: 'Cakework SDK',
+          items: [
+            {
+              type: 'doc',
+              id: 'reference/cakeworksdk/installation',
+              label: 'Installation'
+            },
+            {
+              type: 'doc',
+              id: 'reference/cakeworksdk/service',
+              label: 'Service'
+            },
+            {
+              type: 'doc',
+              id: 'reference/cakeworksdk/client',
+              label: 'Client'
+            }
+          ],
+          collapsed: false,
         }
       ],
       collapsed: false
