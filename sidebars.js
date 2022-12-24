@@ -23,7 +23,7 @@ const sidebars = {
       items: [
         {
           type: 'category',
-          label: 'Cakework CLI',
+          label: 'CLI',
           items: [
             {
               type: 'doc',
@@ -33,32 +33,53 @@ const sidebars = {
             {
               type: 'doc',
               id: 'reference/cakeworkctl/commands',
-              label: 'Commands'
+              label: 'Usage'
             }
           ],
-          collapsed: false,
         },
         {
           type: 'category',
-          label: 'Cakework SDK',
+          label: 'App SDK',
           items: [
             {
-              type: 'doc',
-              id: 'reference/cakeworksdk/installation',
-              label: 'Installation'
-            },
-            {
-              type: 'doc',
-              id: 'reference/cakeworksdk/service',
-              label: 'Service'
-            },
-            {
-              type: 'doc',
-              id: 'reference/cakeworksdk/client',
-              label: 'Client'
-            }
+              type: 'category',
+              label: 'Python',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'reference/cakeworksdk/app/python/installation',
+                  label: 'Installation'
+                },
+                {
+                  type: 'doc',
+                  id: 'reference/cakeworksdk/app/python/usage',
+                  label: 'Usage'
+                },                  
+              ],
+            }                  
           ],
-          collapsed: false,
+        },
+        {
+          type: 'category',
+          label: 'Client SDK',
+          items: [
+            {
+              type: 'category',
+              label: 'Python',
+              items: [
+                {
+                  type: 'doc',
+                  id: 'reference/cakeworksdk/client/python/installation',
+                  label: 'Installation'
+                },
+                {
+                  type: 'doc',
+                  id: 'reference/cakeworksdk/client/python/usage',
+                  label: 'Usage'
+                },                  
+              ],
+            }             
+          ],
         }
       ],
       collapsed: false

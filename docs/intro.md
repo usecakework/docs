@@ -7,7 +7,8 @@ import TabItem from '@theme/TabItem';
 
 # Getting Started
 
-Cakework helps you build, launch, and operate async backends in production with zero infrastructure. Rather than setting up task queues, workers/lambdas, and databases or hosting Celery, you write your logic and just hit run. We take care of hosting, scaling, and provide features like status tracking and the ability to query for and rerun failed tasks. You can use Cakework for any longer running task that completes in the background, such as document processing using GPT-3.
+Cakework helps you build, launch, and operate async backends in production with zero infrastructure.
+Rather than setting up task queues, workers/lambdas, and databases or hosting Celery, you write your logic and just hit "start". We take care of hosting, scaling, and provide features like status tracking and the ability to query for and rerun failed tasks. You can use Cakework for any longer running task that completes in the background, such as document processing using GPT-3.
 
 :::caution
 We are not in production yet, so all the usual "alpha software" warnings apply! Reach out to us on [Discord](https://discord.gg/yB6GvheDcP), [Github](https://github.com/usecakework), or [email](mailto:eric@cakework.com) if you have any issues. We'll help get you production-ready one way or another 😊.
@@ -87,3 +88,10 @@ Talk about the main.py here
 
 ```
 ```
+
+### Installing Dependencies
+something or other
+
+TODO turn this into concepts (like celery) and create a quickstart instead? where to talk about asyncronicity etc?
+TODO add something about tasks concept somewhere.
+TODO see pandas - "getting started / package overview", and "getting started / quickstart"
