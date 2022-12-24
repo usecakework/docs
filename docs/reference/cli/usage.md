@@ -51,7 +51,7 @@ cakework log <app> <task> <request>
 Get statuses across multiple Requests for a specific Task.
 
 ```
-cakework status <app> <task> --status FAILED
+cakework status <app> <task> --status <status>
 ```
 
 | Argument | Required | Description |
