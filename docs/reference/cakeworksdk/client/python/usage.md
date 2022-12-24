@@ -11,7 +11,7 @@ from cakework import Client
 ### ```Client```
 
 ```py
-Client(name=str)
+Client(name)
 ```
 
 | Parameter | Type | Required | Description |
