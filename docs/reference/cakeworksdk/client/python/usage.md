@@ -63,4 +63,4 @@ get_result(request_id)
 | ```request_id``` | 🤔 | Yes | The request_id to get result for. Provided when you [call your Task](#your_task_name). |
 
 **Returns**  
-The result of a request, as returned by your [Task](../../app/python/usage.md#add_task). ```None``` if the request is not found, or still processing.
+The result of a request, as returned by your [Task](../../app/python/usage.md#add_task). ```None``` if the request is not found or still processing.
