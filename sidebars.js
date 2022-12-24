@@ -27,12 +27,12 @@ const sidebars = {
           items: [
             {
               type: 'doc',
-              id: 'reference/cakeworkctl/installation',
+              id: 'reference/cli/installation',
               label: 'Installation'
             },
             {
               type: 'doc',
-              id: 'reference/cakeworkctl/commands',
+              id: 'reference/cli/commands',
               label: 'Usage'
             }
           ],

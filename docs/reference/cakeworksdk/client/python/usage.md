@@ -1,4 +1,4 @@
-# Client
+# Client SDK Usage
 
 Use the ```Client``` class for for calling and getting information about your Tasks. You can import the client from the cakework module.
 
@@ -43,7 +43,8 @@ A status describing the processing status of a request. ```None``` if the reques
 
 | Status | Description |
 | --- | --- |
-| ```IN_PROGRESS``` | The request is currently processing. |
+| ```PENDING``` | The request has been received. |
+| ```IN_PROGRESS``` | The request is currently being processed. |
 | ```SUCCESS``` | The request has succeeded processing and the result is available. |
 | ```FAILED``` | The request has failed processing. |
 

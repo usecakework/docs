@@ -1,4 +1,4 @@
-# App
+# App SDK Usage
 
 Use the ```App``` class to manage your App and Tasks. It must be run from your ```main.py``` and imported from the cakework module.
 

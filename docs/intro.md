@@ -21,7 +21,7 @@ Run the install script:
 curl -L https://raw.githubusercontent.com/usecakework/cakeworkctl/main/install.sh | sh
 ```
 
-After that, add the cakeworkctl directory to your shell rc file. Check the output of the install script for the exact command.
+After that, add the ```cakework``` directory to your shell rc file. Check the output of the install script for the exact command.
 
 ## Create an account
 Create an account with:
@@ -57,10 +57,10 @@ Start running your app with the Cakework CLI. Cakework runs your app directly in
 <TabItem value="python" label="Python">
 
 ```
-cakework start
+cakework deploy
 ```
 
-You can use the CLI to run your app and get a result.
+You can use the CLI to call your Task and get a result.
 
 ```
 cakework run
