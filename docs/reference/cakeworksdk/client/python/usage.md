@@ -21,17 +21,11 @@ Client(name=str)
 ## Methods
 
 ### Call Your Task
-You can call your Task with same function signature that you [added to your App](../../app/python/usage.md#add_task).
+You can call your Task with same function signature of the task you [added to your App](../../app/python/usage.md#add_task).
 
-```py
-your_task_name(your_args)
-```
+For example, if you added ```hello_friend(firstname, lastname)```, you would call it with ```client.hello_friend(firstname, lastname)```.
 
-| Parameter | Type | Required | Description |
-| --- | --- | --- | --- |
-| ```your_args``` | 🤔 | Yes | The arguments described by your Task. |
-
-#### Returns
+**Returns**  
 A request id (str) that you can use to query for the status of the Task and to get the result.
 
 ### ```get_status```
@@ -41,7 +35,7 @@ get_status(request_id)
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| ```request_id``` | str | Yes | The request_id to get status for. Provided when you [call your Task](#your_task_name) |
+| ```request_id``` | str | Yes | The request_id to get status for. Provided when you [call your Task](#call-your-task). |
 
 
 **Returns**  
@@ -49,7 +43,7 @@ A status describing the processing status of a request. ```None``` if the reques
 
 | Status | Description |
 | --- | --- |
-| ```IN_PROGRESS``` | The request is still processing. |
+| ```IN_PROGRESS``` | The request is currently processing. |
 | ```SUCCESS``` | The request has succeeded processing and the result is available. |
 | ```FAILED``` | The request has failed processing. |
 
@@ -60,7 +54,7 @@ get_result(request_id)
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| ```request_id``` | str | Yes | The request_id to get result for. Provided when you [call your Task](#your_task_name). |
+| ```request_id``` | str | Yes | The request_id to get result for. Provided when you [call your Task](#call-your-task). |
 
 **Returns**  
 The result of a request, as returned by your [Task](../../app/python/usage.md#add_task). ```None``` if the request is not found or still processing.
