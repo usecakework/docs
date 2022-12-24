@@ -31,7 +31,7 @@ cakework log <app> <task>
 | --- | --- | --- |
 | ```app``` (string) | Yes | Name of the App that the Task is in. |
 | ```task``` (string) | Yes | Name of the Task to get logs for. |
-| ```--tail``` (boolean) | No | Live update the log. Off by default. |
+| ```--live``` (boolean) | No | Live update the log. Off by default. |
 
 ### ```cakework log``` (Request)
 Get logs for a specific Request. Request logs show what happen during the specific execution of a Task.
@@ -45,7 +45,7 @@ cakework log <app> <task> <request>
 | ```app``` (string) | Yes | Name of the App that the Request is in. |
 | ```task``` (string) | Yes | Name of the Task that the Request is in. |
 | ```request``` (string) | Yes | ID of the Request to get logs for. |
-| ```--tail``` (boolean) | No | Live update the log. Off by default. |
+| ```--live``` (boolean) | No | Live update the log. Off by default. |
 
 ### ```cakework status```
 Get the status of a specific Request. The status is described [here](../cakeworksdk/client/python/usage#get_status).
