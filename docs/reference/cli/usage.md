@@ -57,7 +57,7 @@ cakework status <app> <task> --status <status>
 | Argument | Required | Description |
 | --- | --- | --- |
 | ```app``` (string) | Yes | Name of the app that the Task is in. |
-| ```task``` (string) | Yes | Name of the app to get logs for. |
+| ```task``` (string) | Yes | Name of the app to get statuses for. |
 | ```--status``` (enum) | No | Filter requests by status. Options are described [here](../cakeworksdk/client/python/usage#get_status). |
 
 ### ```cakework status``` (Request)
