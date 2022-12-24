@@ -48,7 +48,7 @@ cakework log <app> <task> <request>
 | ```--tail``` (boolean) | No | Live update the log. Off by default. |
 
 ### ```cakework status```
-Get the status of a specific Request. The status is described [here](../cakeworksdk/client/python/usage.md#get_status).
+Get the status of a specific Request. The status is described [here](../cakeworksdk/client/python/usage#get_status).
 
 ```
 cakework status <app> <task> <request>

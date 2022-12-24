@@ -16,7 +16,7 @@ App(name)
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| ```name``` | str | Yes | Name of the app to deploy to, generated with [cakework new](../../../cakeworkctl/commands/#cakework-new). If you change this value, it will create a new app.  |
+| ```name``` | str | Yes | Name of the app to deploy to, generated with [cakework new](../../../cli/usage#cakework-new). If you change this value, it will create a new app.  |
 
 
 ## Methods

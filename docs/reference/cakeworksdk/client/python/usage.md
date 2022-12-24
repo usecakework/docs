@@ -16,12 +16,12 @@ Client(name)
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| ```name``` | str | Yes | Name of the app to call, created in the [App SDK](../../app/python/usage.md#app). |
+| ```name``` | str | Yes | Name of the app to call, created in the [App SDK](../../app/python/usage#app). |
 
 ## Methods
 
 ### Call Your Task
-You can call your Task with same function signature of the task you [added to your App](../../app/python/usage.md#add_task).
+You can call your Task with same function signature of the task you [added to your App](../../app/python/usage#add_task).
 
 For example, if you added ```hello_friend(firstname, lastname)```, you would call it with ```client.hello_friend(firstname, lastname)```.
 
@@ -58,4 +58,4 @@ get_result(request_id)
 | ```request_id``` | str | Yes | The request_id to get result for. Provided when you [call your Task](#call-your-task). |
 
 **Returns**  
-The result of a request, as returned by your [Task](../../app/python/usage.md#add_task). ```None``` if the request is not found or still processing.
+The result of a request, as returned by your [Task](../../app/python/usage#add_task). ```None``` if the request is not found or still processing.

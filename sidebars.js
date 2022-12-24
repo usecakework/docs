@@ -32,7 +32,7 @@ const sidebars = {
             },
             {
               type: 'doc',
-              id: 'reference/cli/commands',
+              id: 'reference/cli/usage',
               label: 'Usage'
             }
           ],
