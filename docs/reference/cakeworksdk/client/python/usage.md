@@ -32,7 +32,7 @@ your_task_name(your_args)
 | ```your_args``` | 🤔 | Yes | The arguments described by your Task. |
 
 #### Returns
-A request id that you can use to query for the status of the Task and to get the result.
+A request id (str) that you can use to query for the status of the Task and to get the result.
 
 ### ```get_status```
 ```py
@@ -41,7 +41,7 @@ get_status(request_id)
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| ```request_id``` | 🤔 | Yes | The request_id to get status for. Provided when you [call your Task](#your_task_name) |
+| ```request_id``` | str | Yes | The request_id to get status for. Provided when you [call your Task](#your_task_name) |
 
 
 **Returns**  
@@ -60,7 +60,7 @@ get_result(request_id)
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| ```request_id``` | 🤔 | Yes | The request_id to get result for. Provided when you [call your Task](#your_task_name). |
+| ```request_id``` | str | Yes | The request_id to get result for. Provided when you [call your Task](#your_task_name). |
 
 **Returns**  
 The result of a request, as returned by your [Task](../../app/python/usage.md#add_task). ```None``` if the request is not found or still processing.
