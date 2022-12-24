@@ -45,7 +45,7 @@ A status describing the processing status of a request. ```None``` if the reques
 | --- | --- |
 | ```PENDING``` | The request has been received. |
 | ```IN_PROGRESS``` | The request is currently being processed. |
-| ```SUCCESS``` | The request has succeeded processing and the result is available. |
+| ```SUCCEEDED``` | The request has succeeded processing and the result is available. |
 | ```FAILED``` | The request has failed processing. |
 
 ### ```get_result```

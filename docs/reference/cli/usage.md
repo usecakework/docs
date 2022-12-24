@@ -47,7 +47,20 @@ cakework log <app> <task> <request>
 | ```request``` (string) | Yes | ID of the Request to get logs for. |
 | ```--live``` (boolean) | No | Live update the log. Off by default. |
 
-### ```cakework status```
+### ```cakework status``` (Task)
+Get statuses across multiple Requests for a specific Task.
+
+```
+cakework status <app> <task> --status FAILED
+```
+
+| Argument | Required | Description |
+| --- | --- | --- |
+| ```app``` (string) | Yes | Name of the app that the Task is in. |
+| ```task``` (string) | Yes | Name of the app to get logs for. |
+| ```--status``` (enum) | No | Filter requests by status. Options are described [here](../cakeworksdk/client/python/usage#get_status). |
+
+### ```cakework status``` (Request)
 Get the status of a specific Request. The status is described [here](../cakeworksdk/client/python/usage#get_status).
 
 ```
