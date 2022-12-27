@@ -14,7 +14,7 @@ cakework new <name> --lang <lang>
 | ```--lang``` (string) | Yes | Language of the app to create. Currently, only ```python``` is supported. |
 
 ### ```cakework deploy```
-Deploy your Cakework app to our cloud.
+Deploy your Cakework app to our cloud. For Python, all of your requirements must go in a requirements.txt for us to correctly package and deploy your app.
 
 ```
 cakework deploy
