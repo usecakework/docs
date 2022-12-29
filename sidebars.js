@@ -16,7 +16,21 @@
 
 const sidebars = {
   sidebar: [
-    'intro',
+    {
+      type: 'doc',
+      label: 'Intro',
+      id: 'intro'
+    },
+    {
+      type: 'doc',
+      label: 'Getting Started',
+      id: 'quickstart'
+    },
+    {
+      type: 'doc',
+      label: 'Examples',
+      id: 'examples'
+    },
     {
       type: 'category',
       label: 'Reference',
