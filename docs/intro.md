@@ -1,3 +1,7 @@
+---
+slug: /
+---
+
 # Intro
 
 Cakework helps you build async backends in minutes and operate them in production, without needing to manage any infrastructure. You write your backend as a Python app, and use the Cakework client to execute requests. Each request returns an id that you can use to track status and get processing results. Cakework is serverless and automatically scales to your production traffic.
