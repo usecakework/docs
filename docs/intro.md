@@ -16,5 +16,5 @@ It's still super early days. Reach out to us on [Discord](https://discord.gg/yB6
 
 ## Next Steps
 
-* [Get Started!](quickstart)
+* [Get Started!](gettingstarted)
 * [Check out our examples](examples)
