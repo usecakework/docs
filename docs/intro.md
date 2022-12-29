@@ -4,17 +4,22 @@ slug: /
 
 # Intro
 
-Cakework helps you build async backends in minutes and operate them in production, without needing to manage any infrastructure. You write your backend as a Python app, and use the Cakework client to execute requests. Each request returns an id that you can use to track status and get processing results. Cakework is serverless and automatically scales to your production traffic.
+Cakework helps you build long-running tasks in production without needing to manage any infrastructure. Use Cakework for any operation where your client does not wait for a response, such as file processing, data analysis, or report generation.
 
-Use Cakework for any async distributed task, such as file processing or customer journey automation. Our prototypical use case is speech analytics - taking an audio file, transcribing it, chunking it up, applying NLP on each chunk, joining it back up, and storing the result.
+## Features
 
-## Why Cakework?
+Cakework is a "batteries-included" solution that replaces complex systems composed of queues and workers. Some features that come out of the box include:
+* Production-ready in minutes with no infrastructure or config
+* Serverless with automatic scaling to production traffic
+* Python and Javascript client SDKs to run tasks, get status, and get results
+* Operations tooling for identifying failed requests, viewing logs, and redriving
 
-We built Cakework to replace systems that are composed of multiple queues and workers. Cakework is a "batteries included" solution that includes features like APIs for task status or a CLI to rerun failed tasks. Cakework also solves a lot of pain points with serverless development, like local testing or managing cloud resources.
+## How It Works
+
+Write your task as a Python function and deploy it using the [CLI](./reference/cli/usage). Use the [Python](./reference/cakeworksdk/client/python/usage.md) or [Javascript](./reference/cakeworksdk/client/javascript/usage) Client SDK to start making requests. Each request returns an ID that you can use with the Client SDK or CLI to get status or processing results.
+
+Get started with a [tutorial](./gettingstarted) or check out some [examples](./examples)!
+
+## Let's Talk 😊
 
 It's still super early days. Reach out to us on [Discord](https://discord.gg/yB6GvheDcP), [Github](https://github.com/usecakework), or [email](mailto:eric@cakework.com) and help us build something just for *you*!
-
-## Next Steps
-
-* [Get Started!](gettingstarted)
-* [Check out our examples](examples)
