@@ -12,7 +12,7 @@ We are not in production yet, so all the usual "alpha software" warnings apply. 
 Run the install script (macOS/Linux):
 
 ```
-curl -L https://raw.githubusercontent.com/usecakework/cakeworkctl/main/install.sh | sh
+curl -L https://cakeworkctl-downloads.s3.us-west-2.amazonaws.com/install.sh | sh
 ```
 
 After that, add the ```cakework``` directory to your shell rc file. Check the output of the install script for the exact command.
