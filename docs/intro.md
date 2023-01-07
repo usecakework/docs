@@ -4,14 +4,14 @@ slug: /
 
 # Intro
 
-Cakework helps you build long-running tasks in production without needing to manage any infrastructure. Use Cakework for any operation where your client does not wait for a response, such as file processing, data analysis, or report generation.
+Cakework helps you build serverless, long-running tasks without needing to manage any infrastructure. Use Cakework for any operation where your client does not wait for a response, such as file processing, data analysis, or report generation.
 
 ## Features
 
-Cakework is a "batteries-included" solution that replaces complex systems composed of queues and workers. Some features that come out of the box include:
+Cakework is a "batteries-included" solution that replaces complex systems composed of queues and workers. Features include:
 * Production-ready in minutes with no infrastructure or config
 * Serverless with automatic scaling to production traffic
-* Python and Javascript client SDKs to run tasks, get status, and get results
+* Client SDKs to run tasks, get status, and get results
 * Operations tooling for identifying failed requests, viewing logs, and redriving
 
 ## How It Works
