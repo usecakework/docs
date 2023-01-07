@@ -1,6 +1,38 @@
 # CLI Usage
 The ```cakework``` command is the primary way of interacting with Cakework.
 
+### ```cakework signup```
+Sign up for Cakework.
+
+```
+cakework signup
+```
+
+### ```cakework login```
+Log into Cakework.
+
+```
+cakework login
+```
+
+### ```cakework logout```
+Log out from Cakework.
+
+```
+cakework logout
+```
+
+### ```cakework create-client-token```
+Create a client token that your Client SDK uses to authenticate with the app.
+
+```
+cakework create-client-token <name>
+```
+
+| Argument | Required | Description |
+| --- | --- | --- |
+| ```name``` (string) | Yes | Name of the token to create. |
+
 ### ```cakework new```
 Initialize a new Cakework app.
 

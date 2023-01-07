@@ -11,12 +11,13 @@ from cakework import Client
 ### ```Client```
 
 ```py
-Client(name)
+Client(name, client_token)
 ```
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
 | ```name``` | str | Yes | Name of the app to call, created in the [App SDK](../../app/python/usage#app). |
+| ```client_token``` | str | Yes | Your client token used to authenticate, created with the [CLI](../../../cli/usage#cakework-create-client-token). |
 
 ## Methods
 

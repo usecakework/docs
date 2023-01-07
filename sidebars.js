@@ -92,23 +92,7 @@ const sidebars = {
                   label: 'Usage'
                 },                  
               ],
-            },
-            {
-              type: 'category',
-              label: 'Javascript',
-              items: [
-                {
-                  type: 'doc',
-                  id: 'reference/cakeworksdk/client/javascript/installation',
-                  label: 'Installation'
-                },
-                {
-                  type: 'doc',
-                  id: 'reference/cakeworksdk/client/javascript/usage',
-                  label: 'Usage'
-                },                  
-              ],
-            }               
+            },                
           ],
         }
       ],
