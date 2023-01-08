@@ -64,7 +64,7 @@ Once your app is deployed, you can run start running tasks using the Cakework cl
 You need to generate a token to authenticate your client with your app. Keep your token safe.
 
 ```
-cakework create-client-token --name my-client
+cakework create-client-token my-client
 ```
 
 ### Use the Client
