@@ -124,7 +124,7 @@ Coming soon!
 ## More!
 
 ### Installing Dependencies
-You can install dependencies with pip3, just include it in your ```requirements.txt```. Make sure you are using your virtual environment.
+You can install dependencies with pip3, just include it in your ```requirements.txt``` with ```pip3 freeze > requirements.txt```. Make sure you are in your virtual environment to prevent your global dependencies from deployed to Cakework.
 
 ```
 source env/bin/activate
