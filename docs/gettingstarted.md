@@ -65,7 +65,7 @@ Once your app is deployed, you can run start running tasks using the Cakework cl
 You need to generate a token to authenticate your client with your app. Keep your token safe.
 
 ```
-cakework create-client-token --name my-client
+cakework create-client-token my-client
 ```
 
 ### Use the Client
@@ -92,11 +92,13 @@ if __name__ == "__main__":
     status = client.get_status(request_id)
     while (status == "PENDING" or status == "IN_PROGRESS"):
         time.sleep(1)
+        print(status)
         status = client.get_status(request_id)
 
     # Get the result once the task is complete!
     if (client.get_status(request_id) == "SUCCEEDED"):
         result = client.get_result(request_id)
+        print(result)
 ```
 
 </TabItem>
