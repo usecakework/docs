@@ -91,11 +91,13 @@ if __name__ == "__main__":
     status = client.get_status(request_id)
     while (status == "PENDING" or status == "IN_PROGRESS"):
         time.sleep(1)
+        print(status)
         status = client.get_status(request_id)
 
     # Get the result once the task is complete!
     if (client.get_status(request_id) == "SUCCEEDED"):
         result = client.get_result(request_id)
+        print(result)
 ```
 
 </TabItem>
