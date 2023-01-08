@@ -31,7 +31,8 @@ Create a new app with the Cakework CLI.
 ```
 cakework new yummy-new-app --lang python
 cd yummy-new-app
-pip install -r requirements.txt
+pip3 install cakework
+pip3 install -r requirements.txt
 ```
 
 ### Write Your App
@@ -52,7 +53,7 @@ if __name__ == "__main__":
 ```
 
 ## Deploy Your App
-Deploy your app to Cakework, where your tasks will run serverless.
+Deploy your app to Cakework, where your tasks will run serverlessly.
 ```
 cakework deploy
 ```
@@ -118,7 +119,7 @@ Coming soon!
 ## More!
 
 ### Installing Dependencies
-You can install dependencies with pip, just include it in your ```requirements.txt```. 
+You can install dependencies with pip3, just include it in your ```requirements.txt```. 
 
 ### Error Handling
 Any exceptions or errors in your task function will send your task to a ```FAILED``` status.
