@@ -16,7 +16,7 @@ Cakework is a "batteries-included" solution that replaces complex systems compos
 
 ## How It Works
 
-Write your task as a Python function and deploy it using the [CLI](./reference/cli/usage). Use the [Python](./reference/cakeworksdk/client/python/usage.md) Client SDK to start making requests. Each request returns an ID that you can use with the Client SDK or CLI to get status or processing results.
+Write your task as a Python function using the [Task SDK](./reference/cakeworksdk/task/python/usage.md) and deploy it using the [CLI](./reference/cli/usage). Use the Python [Client SDK](./reference/cakeworksdk/client/python/usage.md) to start making requests. Each request returns an ID that you can use with the Client SDK or CLI to get status or processing results.
 
 Get started with a [tutorial](./gettingstarted) or check out some [examples](./examples)!
 

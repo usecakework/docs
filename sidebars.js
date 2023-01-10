@@ -53,7 +53,7 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'App SDK',
+          label: 'Task SDK',
           items: [
             {
               type: 'category',
@@ -61,12 +61,12 @@ const sidebars = {
               items: [
                 {
                   type: 'doc',
-                  id: 'reference/cakeworksdk/app/python/installation',
+                  id: 'reference/cakeworksdk/task/python/installation',
                   label: 'Installation'
                 },
                 {
                   type: 'doc',
-                  id: 'reference/cakeworksdk/app/python/usage',
+                  id: 'reference/cakeworksdk/task/python/usage',
                   label: 'Usage'
                 },                  
               ],

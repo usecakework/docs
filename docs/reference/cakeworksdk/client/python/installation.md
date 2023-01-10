@@ -5,6 +5,6 @@ To install the Cakework Python client SDK, run the following command in your Pyt
 
 
 ```
-pip install cakework
-pip freeze > requirements.txt
+pip3 install cakework
+pip3 freeze > requirements.txt
 ```

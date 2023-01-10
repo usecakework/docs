@@ -3,7 +3,7 @@ import TabItem from '@theme/TabItem';
 
 # CLI Installation
 
-The Cakework CLI is a command-line interface for using Cakework. You do just about everything in Cakework with the ```cakework``` command, from creating your apps to pulling logs.
+The Cakework CLI is a command-line interface for using Cakework. You do just about everything in Cakework with the ```cakework``` command, from creating your projects to pulling logs.
 
 ## Installation
 

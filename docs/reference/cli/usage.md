@@ -23,7 +23,7 @@ cakework logout
 ```
 
 ### ```cakework create-client-token```
-Create a client token that your Client SDK uses to authenticate with the app.
+Create a client token that your Client SDK uses to authenticate with the project.
 
 ```
 cakework create-client-token <name>
@@ -34,7 +34,7 @@ cakework create-client-token <name>
 | ```name``` (string) | Yes | Name of the token to create. |
 
 ### ```cakework new```
-Initialize a new Cakework app.
+Initialize a new Cakework project.
 
 ```
 cakework new <name> --lang <lang>
@@ -42,11 +42,11 @@ cakework new <name> --lang <lang>
 
 | Argument | Required | Description |
 | --- | --- | --- |
-| ```name``` (string) | Yes | Name of the app to create. This is used to reference your app and must be unique. |
-| ```--lang``` (string) | Yes | Language of the app to create. Currently, only ```python``` is supported. |
+| ```name``` (string) | Yes | Name of the project to create. This is used to reference your project and must be unique. |
+| ```--lang``` (string) | Yes | Language of the project to create. Currently, only ```python``` is supported. |
 
 ### ```cakework deploy```
-Deploy your Cakework app to our cloud. For Python, all of your requirements must go in a requirements.txt for us to correctly package and deploy your app.
+Deploy your Cakework tasks to our cloud. For Python, all of your requirements must go in a requirements.txt for us to correctly package and deploy your tasks.
 
 ```
 cakework deploy
@@ -56,12 +56,12 @@ cakework deploy
 Get logs for a specific Task. Task logs shows information about all of the Requests to the Task.
 
 ```
-cakework log <app> <task>
+cakework log <project> <task>
 ```
 
 | Argument | Required | Description |
 | --- | --- | --- |
-| ```app``` (string) | Yes | Name of the App that the Task is in. |
+| ```project``` (string) | Yes | Name of the Project that the Task is in. |
 | ```task``` (string) | Yes | Name of the Task to get logs for. |
 | ```--live``` (boolean) | No | Live update the log. Off by default. |
 
@@ -69,12 +69,12 @@ cakework log <app> <task>
 Get logs for a specific Request. Request logs show what happen during the specific execution of a Task.
 
 ```
-cakework log <app> <task> <request>
+cakework log <project> <task> <request>
 ```
 
 | Argument | Required | Description |
 | --- | --- | --- |
-| ```app``` (string) | Yes | Name of the App that the Request is in. |
+| ```project``` (string) | Yes | Name of the Project that the Request is in. |
 | ```task``` (string) | Yes | Name of the Task that the Request is in. |
 | ```request``` (string) | Yes | ID of the Request to get logs for. |
 | ```--live``` (boolean) | No | Live update the log. Off by default. |
@@ -83,24 +83,24 @@ cakework log <app> <task> <request>
 Get statuses across multiple Requests for a specific Task.
 
 ```
-cakework status <app> <task> --status <status>
+cakework status <project> <task> --status <status>
 ```
 
 | Argument | Required | Description |
 | --- | --- | --- |
-| ```app``` (string) | Yes | Name of the app that the Task is in. |
-| ```task``` (string) | Yes | Name of the app to get statuses for. |
+| ```project``` (string) | Yes | Name of the project that the Task is in. |
+| ```task``` (string) | Yes | Name of the project to get statuses for. |
 | ```--status``` (enum) | No | Filter requests by status. Options are described [here](../cakeworksdk/client/python/usage#get_status). |
 
 ### ```cakework status``` (Request)
 Get the status of a specific Request. The status is described [here](../cakeworksdk/client/python/usage#get_status).
 
 ```
-cakework status <app> <task> <request>
+cakework status <project> <task> <request>
 ```
 
 | Argument | Required | Description |
 | --- | --- | --- |
-| ```app``` (string) | Yes | Name of the app that the Task is in. |
-| ```task``` (string) | Yes | Name of the app to get logs for. |
+| ```project``` (string) | Yes | Name of the project that the Task is in. |
+| ```task``` (string) | Yes | Name of the project to get logs for. |
 | ```request``` (string) | Yes | ID of the request to get logs for. |
