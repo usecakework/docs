@@ -6,6 +6,8 @@ slug: /
 
 Cakework helps you build serverless, long-running tasks without needing to manage any infrastructure. Use Cakework for any operation where your client does not wait for a response, such as file processing, data analysis, or report generation.
 
+We built Cakework because we got tired of wiring together and managing queues, dbs, and workers/lambdas, to build long-running tasks. Our prototypical use case is serverless ML that takes some time behind the scenes. Here is a simple prototypical example of using Cakework with [Banana](www.banana.dev) to do image generation and upload to S3.
+
 ## Features
 
 Cakework is a "batteries-included" solution that replaces complex systems composed of queues and workers. Features include:
