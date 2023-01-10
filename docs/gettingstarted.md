@@ -9,7 +9,11 @@ We are not in production yet, so all the usual "alpha software" warnings apply. 
 :::
 
 ## Install the CLI
-Follow instructions [here](./reference/cli/installation.md).
+Run the following command:
+
+```
+curl -L https://cakeworkctl-downloads.s3.us-west-2.amazonaws.com/install.sh | sh
+```
 ## Create an account
 
 ```

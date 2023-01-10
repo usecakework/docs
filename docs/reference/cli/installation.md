@@ -26,10 +26,6 @@ The Cakework CLI is a command-line interface for using Cakework. You do just abo
 <Tabs groupId="os">
 <TabItem value="osx" label="macOS">
 
-### Prerequisites
-- Python 3.7 or above
-- The Python `venv` module.
-
 To install the Cakework CLI, run the install script:
 
 ```
