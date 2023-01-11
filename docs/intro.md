@@ -24,4 +24,4 @@ Get started with a [tutorial](./gettingstarted) or check out some [examples](./e
 
 ## Let's Talk 😊
 
-It's still super early days. Reach out to us on [Discord](https://discord.gg/yB6GvheDcP), [Github](https://github.com/usecakework), or [email](mailto:eric@cakework.com) and help us build something just for *you*!
+It's still super early days. Reach out to us on [Discord](https://discord.gg/ttSR85BUq8), [Github](https://github.com/usecakework), or [email](mailto:eric@cakework.com) and help us build something just for *you*!
