@@ -5,7 +5,7 @@ import TabItem from '@theme/TabItem';
 # Getting Started
 
 :::caution
-We are not in production yet, so all the usual "alpha software" warnings apply. Reach out to us on [Discord](https://discord.gg/ttSR85BUq8), [Github](https://github.com/usecakework), or [email](mailto:eric@cakework.com) for help!
+We are not in production yet, so all the usual "alpha software" warnings apply. Reach out to us on [Discord](https://discord.gg/yB6GvheDcP), [Github](https://github.com/usecakework), or [email](mailto:eric@cakework.com) for help!
 :::
 
 ## Install the CLI
