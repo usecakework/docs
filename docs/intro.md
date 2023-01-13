@@ -12,7 +12,7 @@ We built Cakework because we got tired of wiring together and managing queues, d
 
 Cakework is a "batteries-included" solution that replaces complex systems composed of queues and workers. Features include:
 * Production-ready in minutes with no infrastructure or config
-* Serverless with automatic scaling to production traffic
+* Serverless with no timeout limitations
 * Client SDKs to run tasks, get status, and get results
 * Operations tooling for identifying failed requests, viewing logs, and redriving
 
