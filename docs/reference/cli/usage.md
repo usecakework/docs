@@ -52,7 +52,33 @@ Deploy your Cakework tasks to our cloud. For Python, all of your requirements mu
 cakework deploy
 ```
 
-### ```cakework request-log```
+### ```cakework task log```
+Get logs for a specific Task. Task logs shows information about all of the Requests to the Task.
+
+```
+cakework log <project> <task>
+```
+
+### ```cakework task status```
+Get statuses across multiple Requests for a specific Task.
+
+```
+cakework status <project> <task> --status <status>
+```
+
+| Argument | Required | Description |
+| --- | --- | --- |
+| ```project``` (string) | Yes | Name of the project that the Task is in. |
+| ```task``` (string) | Yes | Name of the project to get statuses for. |
+| ```--status``` (enum) | No | Filter requests by status. Options are described [here](../cakeworksdk/client/python/usage#get_status). |
+
+| Argument | Required | Description |
+| --- | --- | --- |
+| ```project``` (string) | Yes | Name of the Project that the Task is in. |
+| ```task``` (string) | Yes | Name of the Task to get logs for. |
+| ```--live``` (boolean) | No | Live update the log. Off by default. |
+
+### ```cakework request log```
 Get logs for a specific Request. Request logs show what happen during the specific execution of a Task.
 
 ```
@@ -66,20 +92,7 @@ cakework log <project> <task> <request>
 | ```request``` (string) | Yes | ID of the Request to get logs for. |
 | ```--live``` (boolean) | No | Live update the log. Off by default. |
 
-### ```cakework status```
-Get statuses across multiple Requests for a specific Task.
-
-```
-cakework status <project> <task> --status <status>
-```
-
-| Argument | Required | Description |
-| --- | --- | --- |
-| ```project``` (string) | Yes | Name of the project that the Task is in. |
-| ```task``` (string) | Yes | Name of the project to get statuses for. |
-| ```--status``` (enum) | No | Filter requests by status. Options are described [here](../cakeworksdk/client/python/usage#get_status). |
-
-### ```cakework request-status```
+### ```cakework request status```
 Get the status of a specific Request. The status is described [here](../cakeworksdk/client/python/usage#get_status).
 
 ```
