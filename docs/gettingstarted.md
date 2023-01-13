@@ -8,16 +8,15 @@ import TabItem from '@theme/TabItem';
 We are not in production yet, so all the usual "alpha software" warnings apply. Reach out to us on [Discord](https://discord.gg/yB6GvheDcP), [Github](https://github.com/usecakework), or [email](mailto:eric@cakework.com) for help!
 :::
 
-## Install Cakework
-Run the install script (macOS/Linux):
+## Install the CLI
+Run the following command. See the [reference docs](./reference/cli/installation.md) for more detail.
 
 ```
 curl -L https://cakeworkctl-downloads.s3.us-west-2.amazonaws.com/install.sh | sh
 ```
 
-After that, add the ```cakework``` directory to your shell rc file. Check the output of the install script for the exact command.
-
 ## Create an account
+Sign up for a Cakework account.
 
 ```
 cakework signup

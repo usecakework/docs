@@ -5,6 +5,22 @@ import TabItem from '@theme/TabItem';
 
 The Cakework CLI is a command-line interface for using Cakework. You do just about everything in Cakework with the ```cakework``` command, from creating your projects to pulling logs.
 
+## Prerequisites
+<Tabs groupId="os">
+<TabItem value="osx" label="macOS">
+
+- Python 3.7 or above
+- The Python `venv` module.
+
+</TabItem>
+<TabItem value="linux" label="Linux">
+
+- Python 3.7 or above
+- The Python `venv` module. See [here](https://packaging.python.org/en/latest/guides/installing-using-linux-tools/) if you need to install it on your Linux machine.
+
+</TabItem>
+</Tabs>
+
 ## Installation
 
 <Tabs groupId="os">
@@ -19,6 +35,7 @@ curl -L https://cakeworkctl-downloads.s3.us-west-2.amazonaws.com/install.sh | sh
 After that, add the ```cakework``` directory to your shell rc file. Check the output of the install script for the exact command.
 </TabItem>
 <TabItem value="linux" label="Linux">
+
 
 To install the Cakework CLI, run the install script:
 
