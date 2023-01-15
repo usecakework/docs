@@ -76,31 +76,25 @@ cakework status <project> <task> --status <status>
 | --- | --- | --- |
 | ```project``` (string) | Yes | Name of the Project that the Task is in. |
 | ```task``` (string) | Yes | Name of the Task to get logs for. |
-| ```--live``` (boolean) | No | Live update the log. Off by default. |
 
 ### ```cakework request log```
 Get logs for a specific Request. Request logs show what happen during the specific execution of a Task.
 
 ```
-cakework log <project> <task> <request>
+cakework log <request>
 ```
 
 | Argument | Required | Description |
 | --- | --- | --- |
-| ```project``` (string) | Yes | Name of the Project that the Request is in. |
-| ```task``` (string) | Yes | Name of the Task that the Request is in. |
 | ```request``` (string) | Yes | ID of the Request to get logs for. |
-| ```--live``` (boolean) | No | Live update the log. Off by default. |
 
 ### ```cakework request status```
 Get the status of a specific Request. The status is described [here](../cakeworksdk/client/python/usage#get_status).
 
 ```
-cakework status <project> <task> <request>
+cakework status <request>
 ```
 
 | Argument | Required | Description |
 | --- | --- | --- |
-| ```project``` (string) | Yes | Name of the project that the Task is in. |
-| ```task``` (string) | Yes | Name of the project to get logs for. |
 | ```request``` (string) | Yes | ID of the request to get logs for. |
