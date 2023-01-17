@@ -4,7 +4,7 @@ slug: /
 
 # Intro
 
-Cakework helps you build serverless async backends without needing to manage any infrastructure. Cakework is for for any operation that doesn't need to respond right away, but really shines with work that takes time or compute resources to process such as file processing, data analysis, or report generation.
+Cakework helps you build serverless async backends without needing to manage any infrastructure. Cakework is for any operation that doesn't need to respond right away, but really shines with work that takes time or compute resources to process such as file processing, data analysis, or report generation.
 
 ## Features
 
