@@ -56,7 +56,7 @@ cakework deploy
 Get logs for a specific Task. Task logs shows information about all of the Requests to the Task.
 
 ```
-cakework logs [flags] <project> <task>
+cakework task logs [flags] <project> <task>
 ```
 
 | Argument | Required | Description |
