@@ -1,7 +1,7 @@
 # Examples
 
 ## Hello World
-This is a Hello World project that shows a bit of Cakework.
+This is a Hello World project that shows how to use Cakework.
 
 [Check it out on Github!](https://github.com/usecakework/examples/tree/main/hello_world)
 

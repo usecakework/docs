@@ -28,14 +28,13 @@ cakework signup
 Create a new project with the Cakework CLI. We create a Python virtual environment to make sure only the required dependencies are deployed to Cakework.
 
 ```
-cakework new yummy-new-project --lang python
-cd yummy-new-project
+cakework new yummy && cd yummy
 ```
 
 ### Write Your Task
-You write tasks as Python functions and add the task to your project using the Task SDK. Using the client, you'll start tasks with this function signature and get the return value as a result. The arguments and return value need to be JSON-serializable.
+You write tasks as Python functions and add the task to your project using the Task SDK. Using the client, you'll make requests with this function signature and get the return value as a result. The arguments and return value need to be JSON-serializable.
 
-Make sure your virtual environment is activated before you write your code.
+Activate your virtual environment before you write your code.
 ```
 source env/bin/activate
 ```
@@ -63,7 +62,7 @@ cakework deploy
 ```
 
 ## Run a Task
-Once your task is deployed, you can run start running it using the Cakework client.
+Once your task is deployed, you can run start making requests using the Cakework client.
 
 ### Generate Client Token
 You need to generate a token to authenticate your client with your project. Keep your token safe.
@@ -87,7 +86,7 @@ import time
 if __name__ == "__main__":
 
     # Instantiate a client with the project you created, and pass in your client token.
-    client = Client("yummy-new-project", "CLIENT_TOKEN")
+    client = Client("yummy", "CLIENT_TOKEN")
 
     # Start your task. You use the same function signature that you wrote in your task.
     request_id = client.say_hello("Jessie")
@@ -121,6 +120,15 @@ Coming soon!
 
 </TabItem>
 </Tabs>
+
+### CPU / Memory
+You can control your compute parameters per request with ```compute``` argument to your function call.
+
+```python
+# CPU can be between 1 and 8, and memory (MB) can be between 256 and 16384.
+request_id = client.say_hello("Jessie", compute={'cpu': 2, 'memory': 1024})
+```
+
 
 ## More!
 

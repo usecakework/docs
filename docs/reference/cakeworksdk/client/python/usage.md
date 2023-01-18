@@ -22,9 +22,20 @@ Client(name, client_token)
 ## Methods
 
 ### Call Your Task
-You can call your Task with same function signature of the task you [added to your Project](../../task/python/usage#add_task).
+You can call your Task with same function signature of the task you [added to your Project](../../task/python/usage#add_task). For example, if you added
 
-For example, if you added ```hello_friend(firstname, lastname)```, you would call it with ```client.hello_friend(firstname, lastname)```.
+```hello_friend(firstname, lastname)```
+
+you would call it with
+
+```request_id = client.hello_friend(firstname, lastname)```.
+
+You can also call your task with different CPU and memory parameters, per request. Like so:
+
+```request_id = client.say_hello("Jessie", compute={'cpu': 2, 'memory': 1024})```
+
+CPU can be a number between 1 and 8, and memory (MB) can be between 256 and 16384.
+
 
 **Returns**  
 A request id (str) that you can use to query for the status of the Task and to get the result.
