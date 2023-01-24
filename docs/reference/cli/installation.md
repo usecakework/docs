@@ -29,7 +29,7 @@ The Cakework CLI is a command-line interface for using Cakework. You do just abo
 To install the Cakework CLI, run the install script:
 
 ```
-curl -L https://cakeworkctl-downloads.s3.us-west-2.amazonaws.com/install.sh | sh
+curl -L https://raw.githubusercontent.com/usecakework/cakework/main/cli/install.sh | sh
 ```
 
 After that, add the ```cakework``` directory to your shell rc file. Check the output of the install script for the exact command.
@@ -40,7 +40,7 @@ After that, add the ```cakework``` directory to your shell rc file. Check the ou
 To install the Cakework CLI, run the install script:
 
 ```
-curl -L https://cakeworkctl-downloads.s3.us-west-2.amazonaws.com/install.sh | sh
+curl -L https://raw.githubusercontent.com/usecakework/cakework/main/cli/install.sh | sh
 ```
 
 After that, add the ```cakework``` directory to your shell rc file. Check the output of the install script for the exact command.
