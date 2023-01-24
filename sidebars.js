@@ -32,6 +32,11 @@ const sidebars = {
       id: 'examples'
     },
     {
+      type: 'doc',
+      label: 'Upgrade',
+      id: 'upgrade'
+    },
+    {
       type: 'category',
       label: 'Reference',
       items: [
