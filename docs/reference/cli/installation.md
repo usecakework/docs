@@ -10,13 +10,11 @@ The Cakework CLI is a command-line interface for using Cakework. You do just abo
 <TabItem value="osx" label="macOS">
 
 - Python 3.7 or above
-- The Python `venv` module.
 
 </TabItem>
 <TabItem value="linux" label="Linux">
 
 - Python 3.7 or above
-- The Python `venv` module. See [here](https://packaging.python.org/en/latest/guides/installing-using-linux-tools/) if you need to install it on your Linux machine.
 
 </TabItem>
 </Tabs>
