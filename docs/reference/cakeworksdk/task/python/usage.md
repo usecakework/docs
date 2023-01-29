@@ -29,4 +29,4 @@ add_task(task_function)
 
 | Parameter | Type | Required | Description |a
 | --- | --- | --- | --- |
-| ```task_function``` | function | Yes | Function that has your Task logic. Each task is externally callable, and each call to a task runs in its own VM with 1 vCPU and and 256MB of RAM. The name of the function must be unique within the project since you will use the name to call it or trace logs. You can use any JSON serializable parameters in the function you pass in, and can return any JSON serializable Python object. |
+| ```task_function``` | function | Yes | Function that has your Task logic. Each task is externally callable, and each call to a task runs in its own VM with 1 vCPU and and 256MB of RAM by default, unless custom parameters are provided. The name of the function must be unique within the project since you will use the name to call it or trace logs. You can use any JSON serializable parameters in the function you pass in, and can return any JSON serializable Python object. |

@@ -7,6 +7,10 @@ Sign up for Cakework.
 ```
 cakework signup
 ```
+| Argument | Required | Description |
+| --- | --- | --- |
+| ```--headless``` (string) | No | Specify this when running from a machine where a browser is not accessible (e.g. via ssh) |
+
 
 ### ```cakework login```
 Log into Cakework.
@@ -14,6 +18,9 @@ Log into Cakework.
 ```
 cakework login
 ```
+| Argument | Required | Description |
+| --- | --- | --- |
+| ```--headless``` (string) | No | Specify this when running from a machine where a browser is not accessible (e.g. via ssh) |
 
 ### ```cakework logout```
 Log out from Cakework.
@@ -53,7 +60,7 @@ cakework deploy
 ```
 
 ### ```cakework task logs```
-Get logs for a specific Task. Task logs shows information about all of the Requests to the Task.
+Get logs for a specific Task. Task logs shows information about all of the Runs to the Task.
 
 ```
 cakework task logs [flags] <project> <task>
@@ -65,24 +72,24 @@ cakework task logs [flags] <project> <task>
 | ```task``` (string) | Yes | Name of the Task to get logs for. |
 | ```--status``` (string) | No | Status to filter your logs by. |
 
-### ```cakework request logs```
-Get logs for a specific Request. Request logs show what happen during the specific execution of a Task.
+### ```cakework run logs```
+Get logs for a specific Run. Run logs show what happen during the specific execution of a Task.
 
 ```
-cakework request logs <request>
-```
-
-| Argument | Required | Description |
-| --- | --- | --- |
-| ```request``` (string) | Yes | ID of the Request to get logs for. |
-
-### ```cakework request status```
-Get the status of a specific Request. The status is described [here](../cakeworksdk/client/python/usage#get_status).
-
-```
-cakework request status <request>
+cakework run logs <run>
 ```
 
 | Argument | Required | Description |
 | --- | --- | --- |
-| ```request``` (string) | Yes | ID of the request to get status for. |
+| ```run``` (string) | Yes | ID of the Run to get logs for. |
+
+### ```cakework run status```
+Get the status of a specific Run. The status is described [here](../cakeworksdk/client/python/usage#get_run_status).
+
+```
+cakework run status <run>
+```
+
+| Argument | Required | Description |
+| --- | --- | --- |
+| ```run``` (string) | Yes | ID of the Run to get status for. |
