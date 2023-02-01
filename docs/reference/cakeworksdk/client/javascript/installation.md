@@ -1,9 +1,9 @@
 
 # Client SDK Installation
 
-To install the Cakework Javascript client SDK, run the following command in your Python project:
+To install the Cakework Javascript client SDK, run the following command in your Node project:
 
 
-```s
-poetry install cakework
+```
+npm install @cakework/client
 ```

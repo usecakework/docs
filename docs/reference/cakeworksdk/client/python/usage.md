@@ -21,22 +21,16 @@ Client(name, client_token)
 
 ## Methods
 
-### Call Your Task
-You can call your task with a `params` dictionary matching what you [added to your Project](../../task/python/usage#add_task). For example, if you added
+### ```run```
+```py
+run(task, parameters, compute)
+```
 
-```hello_friend(params)```
-where `params = {'name': 'jessie'}`
-
-you would call it with
-
-```request_id = client.run('hello_friend', params)```.
-
-You can also call your task with different CPU and memory parameters, per request. Like so:
-
-```request_id = client.run('hello_friend', params, compute={'cpu': 2, 'memory': 1024})```
-
-CPU can be a number between 1 and 8, and memory (MB) can be between 256 and 16384.
-
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| ```task``` | str | Yes | The name of the [Task](../../task/python/usage#add_task) to run. |
+| ```params``` | str | Yes | A dict of parameters that you can access in your [Task]. Must be JSON serializable.  |
+| ```compute``` | str | No | CPU and memory parameters to run the request with. Looks like `{cpu: 2, memory: 1024}`. CPU can be a number between 1 and 8, and memory (MB) can be between 256 and 16384. |
 
 **Returns**  
 A run id (str) that you can use to query for the status of the Task and to get the result.
@@ -48,7 +42,7 @@ get_run_status(run_id)
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| ```run_id``` | str | Yes | The run_id to get status for. Provided when you [call your Task](#call-your-task). |
+| ```run_id``` | str | Yes | The run_id to get status for. |
 
 
 **Returns**  
@@ -68,7 +62,7 @@ get_run_result(run_id)
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| ```run_id``` | str | Yes | The run_id to get result for. Provided when you [call your Task](#call-your-task). |
+| ```run_id``` | str | Yes | The run_id to get result for. |
 
 **Returns**  
 The result of a run, as returned by your [Task](../../task/python/usage#add_task). ```None``` if the run is not found or still processing.
