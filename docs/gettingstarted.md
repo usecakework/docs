@@ -89,7 +89,7 @@ if __name__ == "__main__":
     client = Client("yummy", "CLIENT_TOKEN")
 
     # Start your task. 
-    run_id = client.run("say_hello", {"name": "Jessie"}, "compute"={"cpu": 1, "memory": 512})
+    run_id = client.run("say_hello", {"name": "Jessie"}, "compute"={cpu: 1, memory: 512})
 
     # Poll the task until completion.
     status = client.get_run_status(run_id)
