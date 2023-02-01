@@ -1,6 +1,11 @@
 # Examples
 
-## Image Generation
-This example shows how you can build a python task generates an image from text using stable diffusion, and uploads that image to S3. It also shows an example of doing this with a webapp. This example runs serverlessly using Cakework and [Banana](https://banana.dev).
+## React Hello World
+This example shows how you can build a React frontend with Cakework.
 
-[Check it out on Github!](https://github.com/usecakework/examples/tree/main/image_generation)
+[Check it out on Github!](https://github.com/usecakework/cakework/tree/main/examples/react-example)
+
+## Image Generation
+This example shows how you can build a python task that generates an image from text using stable diffusion, and uploads that image to S3.This example runs serverlessly using Cakework and [Banana](https://banana.dev).
+
+[Check it out on Github!](https://github.com/usecakework/cakework/tree/main/examples/image_generation)
