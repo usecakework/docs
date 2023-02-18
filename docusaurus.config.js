@@ -7,8 +7,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'cakework',
-  tagline: 'Async Backends with No Infra',
-  url: 'https://your-docusaurus-test-site.com',
+  tagline: 'baking',
+  url: 'https://www.cakework.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -51,14 +51,15 @@ const config = {
         logo: {
           alt: 'Logo',
           src: 'img/cakework_logo.png',
+          href: 'https://www.cakework.com'
         },
-        items: [
-          {
-            href: 'https://github.com/usecakework',
-            label: 'GitHub',
-            position: 'right',
-          },
-        ],
+        // items: [
+        //   {
+        //     href: 'https://github.com/usecakework',
+        //     label: 'GitHub',
+        //     position: 'right',
+        //   },
+        // ],
       },
       footer: {
         style: 'light',
@@ -73,7 +74,7 @@ const config = {
             },
             {
               label: 'Email',
-              href: 'mailto:eric@cakework.com',
+              href: 'mailto:hi@cakework.com',
             },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Sahale, Inc.`,
