@@ -4,7 +4,7 @@ The endpoint is `https://api.cakework.com/v1`. To authorize requests, add your A
 
 ## Images
 
-Use these APIs to get images into Cakework. You start VMs and deploy to VMGroups with imported images.
+Use these APIs to get images into Cakework. You start VMs and deploy services with imported images.
 
 ### importImage
 Import a container image from an existing Docker repository.
@@ -47,15 +47,15 @@ on the way!
 ### getLogs
 on the way!
 
-## VM Groups
-Use these APIs to use groups of VMs that are load balanced behind an endpoint. Each VMGroup runs in its own VPC and is networked to the outside with SSL. 
+## Services
+Use these APIs to deploy services to groups of VMs load balanced behind an endpoint. Each service runs in its own VPC and is networked to the outside with SSL. 
 
-### createVMGroup
-Create a new VM Group.
+### createService
+Create a new Service.
 
 #### Endpoint
 ```txt title="POST"
-https://api.cakework.com/v1/vmgroup/create
+https://api.cakework.com/v1/service/create
 ```
 
 #### Request
@@ -64,25 +64,25 @@ No request parameters.
 #### Response
 ```json
 {
-    "vmGroupId": "string",
+    "service": "string",
     "endpoint": "string",
 }
 ```
-**`vmGroupId`** The id used to reference this VMGroup.  
-**`endpoint`** The endpoint used to access this VMGroup.
+**`service`** The id used to reference this service.  
+**`endpoint`** The endpoint used to access this service.
 
-### deployVMGroup
-Deploy an image to a VMGroup. We will keep minVMs running and autoscale up to maxVMs. If you set minVMs to 0, we will turn all of the VMs off 10s after we received the last request. The cold start coming back should be in seconds. Deployments are blue/green.
+### deployService
+Deploy an image to a Service. We will keep minVMs running and autoscale up to maxVMs. If you set minVMs to 0, we will turn all of the VMs off 10s after we received the last request. The cold start coming back should be in seconds. Deployments are blue/green.
 
 #### Endpoint
 ```txt title="POST"
-https://api.cakework.com/v1/vmgroup/[vmGroupId]/deploy
+https://api.cakework.com/v1/service/[serviceId]/deploy
 ```
 
 #### Request
 ```json
 {
-    "vmGroupId": "string",
+    "serviceId": "string",
     "imageId": "string",
     "envVars": {
         "key": "value"
@@ -98,7 +98,7 @@ https://api.cakework.com/v1/vmgroup/[vmGroupId]/deploy
 }
 ```
 
-**`vmGroupId`**: The id of the VMGroup to deploy to.  
+**`serviceId`**: The id of the service to deploy to.  
 **`imageId`** The id of the image to deploy.  
 **`envVars`** The environment variables the application needs.  
 **`cpu`** The number of CPUs for each VM. Can be a number between 1 and 8.  
@@ -111,11 +111,11 @@ https://api.cakework.com/v1/vmgroup/[vmGroupId]/deploy
 No response.
 
 ### getLogs
-Get all of the logs for a VMGroup. This currently just gets all logs and has no pagination or filtering.
+Get all of the logs for a service. This currently just gets all logs and has no pagination or filtering.
 
 #### Endpoint
 ```txt title="GET"
-https://api.cakework.com/v1/vmgroup/[vmGroupId]/logs
+https://api.cakework.com/v1/service/[serviceId]/logs
 ```
 
 #### Request
@@ -147,7 +147,7 @@ on the way!
 ### getIPs
 on the way!
 
-### destroyVMGroup
+### destroyService
 on the way!
 
 ## Snippets
