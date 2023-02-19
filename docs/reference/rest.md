@@ -83,25 +83,18 @@ https://api.cakework.com/v1/service/[serviceId]/deploy
 ```json
 {
     "imageId": "string",
-    "envVars": {
-        "key": "value"
-    },
     "cpu": 1,
     "memory": 256,
-    "ports": [
-        8080,
-        8081
-    ],
+    "port": 8080,
     "minVms": 0,
     "maxVms": 1,
 }
 ```
 
 **`imageId`** The id of the image to deploy.  
-**`envVars`** The environment variables the application needs.  
 **`cpu`** The number of CPUs for each VM. Can be a number between 1 and 8.  
 **`memory`** The amount of memory for each VM. Can be a number between 256 and 16384.  
-**`ports`** A list of ports to open.  
+**`port`** The internal port to open.  
 **`minVms`** The minimum number of VMs to keep running. If 0, we'll scale down to zero 10s after we received the last request. Can currently only be 0 or 1.  
 **`maxVms`** The maximum number of VMs to run. Must be >= `minVms`. Can currently only be one.
 
@@ -124,7 +117,7 @@ No request parameters.
 {
     "lines": [
         {
-            "timestamp": int,
+            "timestamp": 1676625938460,
             "level": "string",
             "message": "string"
         },
