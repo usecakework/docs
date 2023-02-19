@@ -64,11 +64,11 @@ No request parameters.
 #### Response
 ```json
 {
-    "service": "string",
+    "id": "string",
     "endpoint": "string",
 }
 ```
-**`service`** The id used to reference this service.  
+**`id`** The id used to reference this service.  
 **`endpoint`** The endpoint used to access this service.
 
 ### deployService
@@ -82,7 +82,6 @@ https://api.cakework.com/v1/service/[serviceId]/deploy
 #### Request
 ```json
 {
-    "serviceId": "string",
     "imageId": "string",
     "envVars": {
         "key": "value"
@@ -98,7 +97,6 @@ https://api.cakework.com/v1/service/[serviceId]/deploy
 }
 ```
 
-**`serviceId`**: The id of the service to deploy to.  
 **`imageId`** The id of the image to deploy.  
 **`envVars`** The environment variables the application needs.  
 **`cpu`** The number of CPUs for each VM. Can be a number between 1 and 8.  
@@ -126,7 +124,7 @@ No request parameters.
 {
     "lines": [
         {
-            "timestamp": 1676625938460,
+            "timestamp": int,
             "level": "string",
             "message": "string"
         },
