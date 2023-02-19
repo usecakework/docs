@@ -45,7 +45,32 @@ on the way!
 on the way!
 
 ### getLogs
-on the way!
+Get all of the logs for a VM. This currently just gets all logs and has no pagination or filtering.
+
+#### Endpoint
+```txt title="GET"
+https://api.cakework.com/v1/vm/[vmId]/logs
+```
+
+#### Request
+No request parameters.
+
+#### Response
+```json
+{
+    "lines": [
+        {
+            "timestamp": 1676625938460,
+            "level": "string",
+            "message": "string"
+        },
+    ]
+}
+```
+**`lines`** All the lines returned in the log.  
+&nbsp;&nbsp;&nbsp;&nbsp;`timestamp` The unix timestamp in ms.  
+&nbsp;&nbsp;&nbsp;&nbsp;`level` The log level (e.g. info/error).  
+&nbsp;&nbsp;&nbsp;&nbsp;`message` The message.
 
 ## Services
 Use these APIs to deploy services to groups of VMs load balanced behind an endpoint. Each service runs in its own VPC and is networked to the outside with SSL. 
