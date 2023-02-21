@@ -33,13 +33,74 @@ https://api.cakework.com/v1/image/import
 **`imageId`** The id used to reference this image.
 
 ### buildImageFromGithub
-on its way!
+Build a container image from your user's Github repository. You supply the Dockerfile and optionally a .dockerignore file.
+
+#### Endpoint
+```txt title="POST"
+https://api.cakework.com/v1/image/build/github
+```
+Select `form-data` as the body type.
+
+#### Request
+```json
+{
+    "dockerfile": "string",
+    "dockerignore": "string",
+    "token": "string",
+    "repository": "string",
+    "branch": "string"
+}
+```
+
+**`dockerfile`** Path to Dockerfile.
+
+**`dockerignore`** (Optional) Path to dockerignore file.  
+**`token`** User token that your Github App fetches to access the user's Github repository.  
+**`repository`** Github repository of your user's code, in the format ${my-org}/${my-repo}.  
+**`branch`** Branch of user's Github repository, e.g. `main`. 
+
+#### Response
+```json
+{
+    "imageId": "string"
+}
+```
+**`imageId`** The id used to reference this image.
 
 ## VMs
 Use these APIs to use individual VMs.
 
 ### startVM
-on the way!
+Start a virtual machine using an image. 
+
+#### Endpoint
+```txt title="POST"
+https://api.cakework.com/v1/vm/start
+```
+
+#### Request
+```json
+{
+    "imageId": "string",
+    "cpu": 1,
+    "memory": 256,
+    "port": 8080
+}
+```
+
+**`imageId`** The id of the image to deploy.  
+**`cpu`** The number of CPUs for each VM. Can be a number between 1 and 8.  
+**`memory`** The amount of memory for each VM. Can be a number between 256 and 16384.  
+**`port`** The internal port to open.  
+
+#### Response
+```json
+{
+    "id": "string"
+}
+```
+**`id`** The id used to reference this vm.
+
 
 ### stopVM
 on the way!
