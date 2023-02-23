@@ -96,11 +96,12 @@ https://api.cakework.com/v1/vm/start
 #### Response
 ```json
 {
-    "id": "string"
+    "id": "string",
+    "endpoint": "string"
 }
 ```
 **`id`** The id used to reference this vm.
-
+**`endpoint`** The endpoint used to access this service.
 
 ### stopVM
 on the way!
