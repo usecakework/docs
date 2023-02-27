@@ -104,7 +104,22 @@ https://api.cakework.com/v1/vm/start
 **`endpoint`** The endpoint used to access this service.
 
 ### stopVM
-on the way!
+Stop a virtual machine using the image id. 
+
+#### Endpoint
+```txt title="POST"
+https://api.cakework.com/v1/vm/[id]/stop
+```
+
+#### Request
+```json
+{}
+```
+
+#### Response
+```json
+{}
+```
 
 ### getLogs
 Get all of the logs for a VM. This currently just gets all logs and has no pagination or filtering.
