@@ -7,7 +7,7 @@ The endpoint is `https://api.cakework.com/v1`. To authorize requests, add your A
 Use these APIs to get images into Cakework. You start VMs with Cakework images.
 
 ### importImage
-Import a container image from an existing Docker repository.
+Import a Cakework image from an existing Docker repository.
 
 #### Endpoint
 ```txt title="POST"
@@ -32,8 +32,38 @@ https://api.cakework.com/v1/image/import
 ```
 **`imageId`** The id used to reference this image.
 
+### buildImageFromFile
+Build a Cakework image from a single file.
+
+#### Endpoint
+```txt title="POST"
+https://api.cakework.com/v1/image/build/file
+```
+
+#### Request
+```json
+{
+    "dockerfile": "string",
+    "language": "string",
+    "file": "string",
+    "package": "string",
+}
+```
+**`dockerfile`** A Dockerfile describing the container you want to deploy as a string.  
+**`language`** Language of your code file. We only support `js` (Node) for now.  
+** `file` ** String with the code file contents.  
+**`package`** String with file contents that describe how to run the file. For `js`, this takes a package.json file.
+
+#### Response
+```json
+{
+    "imageId": "string"
+}
+```
+**`imageId`** The id used to reference this image.
+
 ### buildImageFromGithub
-Build a container image from your user's Github repository. You supply a Dockerfile (so you can hide this from your user) and optionally a .dockerignore file.
+Build a Cakework image from your user's Github repository. You supply a Dockerfile (so you can hide this from your user) and optionally a .dockerignore file.
 
 #### Endpoint
 ```txt title="POST"
@@ -65,8 +95,33 @@ https://api.cakework.com/v1/image/build/github
 ```
 **`imageId`** The id used to reference this image.
 
+### getBuildLogs
+Get logs for an image build.
+
+#### Endpoint
+```txt title="POST"
+https://api.cakework.com/v1/image/build/[imageId]/logs
+```
+
+#### Response
+```json
+{
+    "lines": [
+        {
+            "timestamp": 1676625938460,
+            "level": "string",
+            "message": "string"
+        },
+    ]
+}
+```
+**`lines`** All the lines returned in the log.  
+&nbsp;&nbsp;&nbsp;&nbsp;`timestamp` The unix timestamp in ms.  
+&nbsp;&nbsp;&nbsp;&nbsp;`level` The log level (e.g. info/error).  
+&nbsp;&nbsp;&nbsp;&nbsp;`message` The message.
+
 ## VMs
-Use these APIs for one-time use VMs. These have a cold start of several seconds depending on the size of your image.
+Use these APIs for one-time use VMs. These have a cold start of several seconds depending on the size of your image. Each VM runs in its own VPC.
 
 ### startVM
 Start a virtual machine using an image.
