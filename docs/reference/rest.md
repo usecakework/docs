@@ -32,27 +32,36 @@ https://api.cakework.com/v1/image/import
 ```
 **`imageId`** The id used to reference this image.
 
-### buildImageFromFile
-Build a Cakework image from a single file.
+### buildImageFromFiles
+Build a Cakework image from a list of files. This API takes all of your file contents as strings. 
 
 #### Endpoint
 ```txt title="POST"
-https://api.cakework.com/v1/image/build/file
+https://api.cakework.com/v1/image/build/files
 ```
 
 #### Request
 ```json
 {
+    "runtime": "string",
     "dockerfile": "string",
-    "language": "string",
-    "codefile": "string",
+    "codefiles": [
+        {
+            "dir": "string",
+            "name": "string",
+            "content": "string"
+        }
+    ],
     "packagefile": "string",
 }
 ```
-**`dockerfile`** A Dockerfile describing the container you want to deploy as a string.  
-**`language`** Language of your code file. We only support `js` (Node) for now.  
-** `codefile` ** String with the code file contents.  
-**`packagefile`** String with file contents that describe how to run the file. For `js`, this takes a package.json file.
+**`runtime`** Runtime for your code. We only support `node` for now.  
+** `codefiles` ** A list of objects that describe all of the code files.    
+&nbsp;&nbsp;&nbsp;&nbsp;`dir` The directory to put the file in. Use `.` for root.  
+&nbsp;&nbsp;&nbsp;&nbsp;`name` The name of the file to write, e.g. handlers.json".  
+&nbsp;&nbsp;&nbsp;&nbsp;`content` The content of the file as a string.  
+**`packagefile`** String with file contents that describe dependencies or how to run the file. For `node`, this is a `package.json` file.  
+**`dockerfile`** A Dockerfile describing the image you want to build as a string.  
 
 #### Response
 ```json
