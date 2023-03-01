@@ -4,13 +4,13 @@ The endpoint is `https://api.cakework.com/v1`. To authorize requests, add your A
 
 ## Images
 
-Use these APIs to get images into Cakework. You start VMs and deploy services with imported images.
+Use these APIs to get images into Cakework. You start VMs with Cakework images.
 
 ### importImage
 Import a container image from an existing Docker repository.
 
 #### Endpoint
-```txt title="GET"
+```txt title="POST"
 https://api.cakework.com/v1/image/import
 ```
 
@@ -33,13 +33,12 @@ https://api.cakework.com/v1/image/import
 **`imageId`** The id used to reference this image.
 
 ### buildImageFromGithub
-Build a container image from your user's Github repository. You supply the Dockerfile and optionally a .dockerignore file.
+Build a container image from your user's Github repository. You supply a Dockerfile (so you can hide this from your user) and optionally a .dockerignore file.
 
 #### Endpoint
 ```txt title="POST"
 https://api.cakework.com/v1/image/build/github
 ```
-Select `form-data` as the body type.
 
 #### Request
 ```json
@@ -52,9 +51,8 @@ Select `form-data` as the body type.
 }
 ```
 
-**`dockerfile`** Path to Dockerfile.
-
-**`dockerignore`** (Optional) Path to dockerignore file.  
+**`dockerfile`** A Dockerfile describing the container you want to deploy as a string.  
+**`dockerignore`** (Optional) The .dockerignore file as a string.  
 **`token`** User token that your Github App fetches to access the user's Github repository.  
 **`repository`** Github repository of your user's code, in the format ${my-org}/${my-repo}.  
 **`branch`** Branch of user's Github repository, e.g. `main`. 
@@ -68,10 +66,10 @@ Select `form-data` as the body type.
 **`imageId`** The id used to reference this image.
 
 ## VMs
-Use these APIs to use individual VMs.
+Use these APIs for one-time use VMs. These have a cold start of several seconds depending on the size of your image.
 
 ### startVM
-Start a virtual machine using an image. 
+Start a virtual machine using an image.
 
 #### Endpoint
 ```txt title="POST"
@@ -88,9 +86,9 @@ https://api.cakework.com/v1/vm/start
 }
 ```
 
-**`imageId`** The id of the image to deploy.  
-**`cpu`** The number of CPUs for each VM. Can be a number between 1 and 8.  
-**`memory`** The amount of memory for each VM. Can be a number between 256 and 16384.  
+**`imageId`** The id of the image to start the VM with.  
+**`cpu`** The number of CPUs for the VM. Can be a number between 1 and 8.  
+**`memory`** The amount of memory for the VM. Can be a number between 256 and 16384.  
 **`port`** The internal port to open.  
 
 #### Response
@@ -100,37 +98,24 @@ https://api.cakework.com/v1/vm/start
     "endpoint": "string"
 }
 ```
-**`id`** The id used to reference this vm.
-**`endpoint`** The endpoint used to access this service.
+**`id`** The id used to reference this VM.  
+**`endpoint`** The endpoint used to access this VM.
 
 ### stopVM
-Stop a virtual machine using the image id. 
+Stop a running VM. You can also stop a started VM by exiting the process in your code.
 
 #### Endpoint
 ```txt title="POST"
 https://api.cakework.com/v1/vm/[id]/stop
 ```
 
-#### Request
-```json
-{}
-```
-
-#### Response
-```json
-{}
-```
-
-### getLogs
+### getVMLogs
 Get all of the logs for a VM. This currently just gets all logs and has no pagination or filtering.
 
 #### Endpoint
 ```txt title="GET"
-https://api.cakework.com/v1/vm/[vmId]/logs
+https://api.cakework.com/v1/vm/[id]/logs
 ```
-
-#### Request
-No request parameters.
 
 #### Response
 ```json
@@ -149,36 +134,15 @@ No request parameters.
 &nbsp;&nbsp;&nbsp;&nbsp;`level` The log level (e.g. info/error).  
 &nbsp;&nbsp;&nbsp;&nbsp;`message` The message.
 
-## Services
-Use these APIs to deploy services to groups of VMs load balanced behind an endpoint. Each service runs in its own VPC and is networked to the outside with SSL. 
+## Cached VMs
+Use these APIs for re-usable VMs. This helps you get much faster cold starts.
 
-### createService
-Create a new Service.
-
-#### Endpoint
-```txt title="POST"
-https://api.cakework.com/v1/service/create
-```
-
-#### Request
-No request parameters.
-
-#### Response
-```json
-{
-    "id": "string",
-    "endpoint": "string",
-}
-```
-**`id`** The id used to reference this service.  
-**`endpoint`** The endpoint used to access this service.
-
-### deployService
-Deploy an image to a Service. We will keep minVMs running and autoscale up to maxVMs. If you set minVMs to 0, we will turn all of the VMs off 10s after we received the last request. The cold start coming back should be in seconds. Deployments are blue/green.
+### cacheVM
+Cache a VM using an image. You still need to call ```startCachedVM``` to start a cached VM.
 
 #### Endpoint
 ```txt title="POST"
-https://api.cakework.com/v1/service/[serviceId]/deploy
+https://api.cakework.com/v1/vm/cache
 ```
 
 #### Request
@@ -187,32 +151,56 @@ https://api.cakework.com/v1/service/[serviceId]/deploy
     "imageId": "string",
     "cpu": 1,
     "memory": 256,
-    "port": 8080,
-    "minVms": 0,
-    "maxVms": 1,
+    "port": 8080
 }
 ```
 
-**`imageId`** The id of the image to deploy.  
-**`cpu`** The number of CPUs for each VM. Can be a number between 1 and 8.  
-**`memory`** The amount of memory for each VM. Can be a number between 256 and 16384.  
+**`imageId`** The id of the image to cache the VM with.  
+**`cpu`** The number of CPUs for the VM. Can be a number between 1 and 8.  
+**`memory`** The amount of memory for the VM. Can be a number between 256 and 16384.  
 **`port`** The internal port to open.  
-**`minVms`** The minimum number of VMs to keep running. If 0, we'll scale down to zero 10s after we received the last request. Can currently only be 0 or 1.  
-**`maxVms`** The maximum number of VMs to run. Must be >= `minVms`. Can currently only be one.
 
 #### Response
-No response.
+```json
+{
+    "id": "string",
+    "endpoint": "string"
+}
+```
+**`id`** The id used to reference this cached VM.  
+**`endpoint`** The endpoint used to access this cached VM.
 
-### getLogs
-Get all of the logs for a service. This currently just gets all logs and has no pagination or filtering.
+### startCachedVM
+Start a cached VM.
+
+#### Endpoint
+```txt title="POST"
+https://api.cakework.com/v1/vm/cached/[id]/start
+```
+
+### stopCachedVM
+Stop a cached VM. You can stop the cached VM by exiting the process as well.
+
+#### Endpoint
+```txt title="POST"
+https://api.cakework.com/v1/vm/cached/[id]/stop
+```
+
+### destroyCachedVM
+Destroy a cached VM.
+
+#### Endpoint
+```txt title="POST"
+https://api.cakework.com/v1/vm/cached/[id]/destroy
+```
+
+### getCachedVMLogs
+Get all of the logs for a cached VM. This currently just gets logs for all time and has no pagination or filtering.
 
 #### Endpoint
 ```txt title="GET"
-https://api.cakework.com/v1/service/[serviceId]/logs
+https://api.cakework.com/v1/vm/cached/[id]/logs
 ```
-
-#### Request
-No request parameters.
 
 #### Response
 ```json
@@ -229,19 +217,7 @@ No request parameters.
 **`lines`** All the lines returned in the log.  
 &nbsp;&nbsp;&nbsp;&nbsp;`timestamp` The unix timestamp in ms.  
 &nbsp;&nbsp;&nbsp;&nbsp;`level` The log level (e.g. info/error).  
-&nbsp;&nbsp;&nbsp;&nbsp;`message` The message.  
-
-### createCert
-on the way!
-
-### getCerts
-on the way!
-
-### getIPs
-on the way!
-
-### destroyService
-on the way!
+&nbsp;&nbsp;&nbsp;&nbsp;`message` The message.
 
 ## Snippets
 Use these APIs to run a snippet of code. We infer dependencies from the code each time you run the snippet.
