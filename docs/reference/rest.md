@@ -45,14 +45,14 @@ https://api.cakework.com/v1/image/build/file
 {
     "dockerfile": "string",
     "language": "string",
-    "file": "string",
-    "package": "string",
+    "codefile": "string",
+    "packagefile": "string",
 }
 ```
 **`dockerfile`** A Dockerfile describing the container you want to deploy as a string.  
 **`language`** Language of your code file. We only support `js` (Node) for now.  
-** `file` ** String with the code file contents.  
-**`package`** String with file contents that describe how to run the file. For `js`, this takes a package.json file.
+** `codefile` ** String with the code file contents.  
+**`packagefile`** String with file contents that describe how to run the file. For `js`, this takes a package.json file.
 
 #### Response
 ```json
