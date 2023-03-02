@@ -43,25 +43,22 @@ https://api.cakework.com/v1/image/build/files
 #### Request
 ```json
 {
-    "runtime": "string",
     "dockerfile": "string",
-    "codefiles": [
+    "files": [
         {
             "dir": "string",
             "name": "string",
             "content": "string"
         }
     ],
-    "packagefile": "string",
 }
 ```
-**`runtime`** Runtime for your code. We only support `node` for now.  
-** `codefiles` ** A list of objects that describe all of the code files.    
+
+**`dockerfile`** A Dockerfile describing the image you want to build as a string.  
+** `files` ** A list of objects that describe all of the code files.    
 &nbsp;&nbsp;&nbsp;&nbsp;`dir` The directory to put the file in. Use `.` for root.  
 &nbsp;&nbsp;&nbsp;&nbsp;`name` The name of the file to write, e.g. handlers.json".  
 &nbsp;&nbsp;&nbsp;&nbsp;`content` The content of the file as a string.  
-**`packagefile`** String with file contents that describe dependencies or how to run the file. For `node`, this is a `package.json` file.  
-**`dockerfile`** A Dockerfile describing the image you want to build as a string.  
 
 #### Response
 ```json
