@@ -77,7 +77,7 @@ https://api.cakework.com/v1/image/build/github
 ```
 
 #### Request
-```form-data
+```json
 {
     "dockerfile": "string",
     "dockerignore": "string",
