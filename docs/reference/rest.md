@@ -143,7 +143,8 @@ https://api.cakework.com/v1/vm/start
     "imageId": "string",
     "cpu": 1,
     "memory": 256,
-    "port": 8080
+    "port": 8080,
+    "envVars": { "string": "string", "string": "string" }
 }
 ```
 
@@ -151,6 +152,7 @@ https://api.cakework.com/v1/vm/start
 **`cpu`** The number of CPUs for the VM. Can be a number between 1 and 8.  
 **`memory`** The amount of memory for the VM. Can be a number between 256 and 16384.  
 **`port`** (optional) The internal port to open.  
+**`envVars`** (optional) The environment variables as a map of string to string.
 
 #### Response
 ```json
@@ -212,7 +214,9 @@ https://api.cakework.com/v1/vm/cache
     "imageId": "string",
     "cpu": 1,
     "memory": 256,
-    "port": 8080
+    "port": 8080,
+    "envVars": { "string": "string", "string": "string" }
+
 }
 ```
 
@@ -220,6 +224,7 @@ https://api.cakework.com/v1/vm/cache
 **`cpu`** The number of CPUs for the VM. Can be a number between 1 and 8.  
 **`memory`** The amount of memory for the VM. Can be a number between 256 and 16384.  
 **`port`** (optional) The internal port to open.  
+**`envVars`** (optional) The evironment variables as a map of string to string.
 
 #### Response
 ```json
