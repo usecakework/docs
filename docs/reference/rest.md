@@ -77,7 +77,7 @@ https://api.cakework.com/v1/image/build/github
 ```
 
 #### Request
-```json
+```form-data
 {
     "dockerfile": "string",
     "dockerignore": "string",
@@ -88,7 +88,7 @@ https://api.cakework.com/v1/image/build/github
 ```
 
 **`dockerfile`** A Dockerfile describing the container you want to deploy as a string.  
-**`dockerignore`** (Optional) The .dockerignore file as a string.  
+**`dockerignore`** (optional) The .dockerignore file as a string.  
 **`token`** User token that your Github App fetches to access the user's Github repository.  
 **`repository`** Github repository of your user's code, in the format ${my-org}/${my-repo}.  
 **`branch`** Branch of user's Github repository, e.g. `main`. 
@@ -150,7 +150,7 @@ https://api.cakework.com/v1/vm/start
 **`imageId`** The id of the image to start the VM with.  
 **`cpu`** The number of CPUs for the VM. Can be a number between 1 and 8.  
 **`memory`** The amount of memory for the VM. Can be a number between 256 and 16384.  
-**`port`** The internal port to open.  
+**`port`** (optional) The internal port to open.  
 
 #### Response
 ```json
@@ -219,7 +219,7 @@ https://api.cakework.com/v1/vm/cache
 **`imageId`** The id of the image to cache the VM with.  
 **`cpu`** The number of CPUs for the VM. Can be a number between 1 and 8.  
 **`memory`** The amount of memory for the VM. Can be a number between 256 and 16384.  
-**`port`** The internal port to open.  
+**`port`** (optional) The internal port to open.  
 
 #### Response
 ```json
