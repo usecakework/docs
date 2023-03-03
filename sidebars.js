@@ -30,6 +30,11 @@ const sidebars = {
           id: 'reference/rest',
           label: 'REST'
         },          
+        {
+          type: 'doc',
+          id: 'reference/typescript',
+          label: 'Typescript'
+        },          
       ],
       collapsed: false
     }    
