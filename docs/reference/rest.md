@@ -154,7 +154,7 @@ https://api.cakework.com/v1/vm/start
 **`memory`** The amount of memory for the VM. Can be a number between 256 and 16384.  
 **`port`** (optional) The internal port to open.  
 **`envVars`** (optional) The environment variables as a map of string to string.  
-**`diskSize`** (optional) The amount of persistent storage to attach to each VM, in GB.
+**`diskSize`** (optional) The amount of persistent storage to attach to each VM, in GB. Can be a number between 1 and 500.
 
 #### Response
 ```json
@@ -227,7 +227,7 @@ https://api.cakework.com/v1/vm/cache
 **`memory`** The amount of memory for the VM. Can be a number between 256 and 16384.  
 **`port`** (optional) The internal port to open.  
 **`envVars`** (optional) The evironment variables as a map of string to string.  
-**`diskSize`** (optional) The amount of persistent storage to attach to each VM, in GB.
+**`diskSize`** (optional) The amount of persistent storage to attach to each VM, in GB. Can be a number between 1 and 500.
 
 #### Response
 ```json
