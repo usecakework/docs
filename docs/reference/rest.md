@@ -7,7 +7,7 @@ The endpoint is `https://api.cakework.com/v1`. To authorize requests, add your A
 Use these APIs to get images into Cakework. You start VMs with Cakework images.
 
 ### importImage
-Import a Cakework image from an existing Docker repository.
+Import a Cakework image from an existing AWS ECR Docker repository.
 
 #### Endpoint
 ```txt title="POST"
@@ -153,7 +153,7 @@ https://api.cakework.com/v1/vm/start
 **`cpu`** The number of CPUs for the VM. Can be a number between 1 and 8.  
 **`memory`** The amount of memory for the VM. Can be a number between 256 and 16384.  
 **`port`** (optional) The internal port to open.  
-**`envVars`** (optional) The environment variables as a map of string to string.
+**`envVars`** (optional) The environment variables as a map of string to string.  
 **`diskSize`** (optional) The amount of persistent storage to attach to each VM, in GB.
 
 #### Response
@@ -167,7 +167,7 @@ https://api.cakework.com/v1/vm/start
 **`endpoint`** The endpoint used to access this VM.
 
 ### stopVM
-Stop a running VM. You can also stop a started VM by exiting the process in your code.
+Stop a running VM. This destroys the VM, as the start/stopVM commands are for one-time use VMs.
 
 #### Endpoint
 ```txt title="POST"
@@ -217,8 +217,8 @@ https://api.cakework.com/v1/vm/cache
     "cpu": 1,
     "memory": 256,
     "port": 8080,
-    "envVars": { "string": "string", "string": "string" }
-
+    "envVars": { "string": "string", "string": "string" },
+    "diskSize": 3
 }
 ```
 
@@ -226,7 +226,8 @@ https://api.cakework.com/v1/vm/cache
 **`cpu`** The number of CPUs for the VM. Can be a number between 1 and 8.  
 **`memory`** The amount of memory for the VM. Can be a number between 256 and 16384.  
 **`port`** (optional) The internal port to open.  
-**`envVars`** (optional) The evironment variables as a map of string to string.
+**`envVars`** (optional) The evironment variables as a map of string to string.  
+**`diskSize`** (optional) The amount of persistent storage to attach to each VM, in GB.
 
 #### Response
 ```json
