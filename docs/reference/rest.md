@@ -144,7 +144,8 @@ https://api.cakework.com/v1/vm/start
     "cpu": 1,
     "memory": 256,
     "port": 8080,
-    "envVars": { "string": "string", "string": "string" }
+    "envVars": { "string": "string", "string": "string" },
+    "diskSize": 3
 }
 ```
 
@@ -153,6 +154,7 @@ https://api.cakework.com/v1/vm/start
 **`memory`** The amount of memory for the VM. Can be a number between 256 and 16384.  
 **`port`** (optional) The internal port to open.  
 **`envVars`** (optional) The environment variables as a map of string to string.
+**`diskSize`** (optional) The amount of persistent storage to attach to each VM, in GB.
 
 #### Response
 ```json
