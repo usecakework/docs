@@ -175,29 +175,42 @@ https://api.cakework.com/v1/vm/[id]/stop
 ```
 
 ### getVMLogs
-Get all of the logs for a VM. This currently just gets all logs and has no pagination or filtering.
+Get all of the logs for a VM.
 
 #### Endpoint
 ```txt title="GET"
-https://api.cakework.com/v1/vm/[id]/logs
+https://api.cakework.com/v1/vm/[id]/l   ogs
 ```
+#### Request
+```json
+{
+    "query": "failed to",
+    "batch": 50
+}
+```
+
+**`query`** (optional) String to look for in the logs. Case-insensitive.  
+**`batch`** (optional) The number of rows to return. Accepts a range of 50-1000. Default: 100 rows.  
+**`pagination`** (optional) The pagination token returned by the previous call to get logs. Will be used to fetch the next batch of logs.  
 
 #### Response
 ```json
-{
+{`
     "lines": [
         {
             "timestamp": 1676625938460,
             "level": "string",
             "message": "string"
         },
-    ]
+    ],
+    "pagination": "XlG9SZP"
 }
 ```
 **`lines`** All the lines returned in the log.  
 &nbsp;&nbsp;&nbsp;&nbsp;`timestamp` The unix timestamp in ms.  
 &nbsp;&nbsp;&nbsp;&nbsp;`level` The log level (e.g. info/error).  
-&nbsp;&nbsp;&nbsp;&nbsp;`message` The message.
+&nbsp;&nbsp;&nbsp;&nbsp;`message` The message.  
+**`pagination`** (optional) If present, the pagination token with which you can query for more logs.
 
 ## Cached VMs
 Use these APIs for re-usable VMs. This helps you get much faster cold starts.
@@ -227,7 +240,7 @@ https://api.cakework.com/v1/vm/cache
 **`memory`** The amount of memory for the VM. Can be a number between 256 and 16384.  
 **`port`** (optional) The internal port to open.  
 **`envVars`** (optional) The evironment variables as a map of string to string.  
-**`diskSize`** (optional) The amount of persistent storage to attach to each VM, in GB. Can be a number between 1 and 500.
+**`diskSize`** (optional) The amount of persistent storage to attach to each VM, in GB. Can be a number between 1 and 500.  
 
 #### Response
 ```json
