@@ -179,7 +179,7 @@ Get all of the logs for a VM.
 
 #### Endpoint
 ```txt title="GET"
-https://api.cakework.com/v1/vm/[id]/l   ogs
+https://api.cakework.com/v1/vm/[id]/logs
 ```
 #### Request
 ```json
@@ -189,13 +189,13 @@ https://api.cakework.com/v1/vm/[id]/l   ogs
 }
 ```
 
-**`query`** (optional) String to look for in the logs. Case-insensitive.  
+**`query`** (optional) String to look for in the logs. Case-insensitive. If this parameter is not provided, all logs for the vm are returned.
 **`batch`** (optional) The number of rows to return. Accepts a range of 50-1000. Default: 100 rows.  
 **`pagination`** (optional) The pagination token returned by the previous call to get logs. Will be used to fetch the next batch of logs.  
 
 #### Response
 ```json
-{`
+{
     "lines": [
         {
             "timestamp": 1676625938460,
