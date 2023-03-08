@@ -139,6 +139,34 @@ https://api.cakework.com/v1/image/build/[buildId]/logs
 **`from`** (optional) If present, the next from timestamp with which you can query for more logs.  
 **`to`** (optional) If present, the next to timestamp with which you can query for more logs.  
 
+### listVMs
+List the virtual machines which belong to you. Allows you to filter by criteria.
+
+#### Endpoint
+```txt title="GET"
+https://api.cakework.com/v1/image/[imageId]/vms
+```
+#### Query Parameters
+**`imageId`** (optional) Filter VMs by which have a particular image ID deployed.    
+**`status`** (optional) Filter VMs by a particular status. Options are created, started, stopped, or destroyed.  
+
+#### Response
+```json
+{
+    "vms": [
+        {
+            "id": 1676625938460,
+            "status": "string"
+        },
+    ]
+}
+```
+
+**`vms`** All the lines returned in the log.  
+&nbsp;&nbsp;&nbsp;&nbsp;`id` The ID of the VM.  
+&nbsp;&nbsp;&nbsp;&nbsp;`status` The status of the VM.  
+&nbsp;&nbsp;&nbsp;&nbsp;`imageId` The image ID of the VM.  
+
 ## VMs
 Use these APIs for one-time use VMs. These have a cold start of several seconds depending on the size of your image. Each VM runs in its own VPC.
 
@@ -236,6 +264,36 @@ https://api.cakework.com/v1/vm/[vmId]/logs
 **`from`** (optional) If present, the next from timestamp with which you can query for more logs.  
 **`to`** (optional) If present, the next to timestamp with which you can query for more logs.  
 
+### getVm
+Get information about a virtual machine.
+
+#### Endpoint
+```txt title="GET"
+https://api.cakework.com/v1/vm/[vmId]
+```
+#### Response
+```json
+{
+    "id": "string",
+    "hostname": "string",
+    "cpu": 1,
+    "memory": 256,
+    "imageId": "32GT08QBZ30M6R0CM27PSZC34G",
+    "createdAt": "2023-02-24 20:29:40.331",
+    "updatedAt": "2023-02-24 20:29:40.331",
+    "port": 8080,
+    "state": "started"
+}
+```
+**`id`** The id used to reference this VM.  
+**`hostname`** The hostname used to access this VM.  
+**`cpu`** The number of CPUs allocated for this VM.  
+**`memory`** The amount of memory allocated for this VM.  
+**`imageId`** The image ID of the Docker image this VM is running.  
+**`createdAt`** The date and time this VM was created.  
+**`updatedAt`** The date and time this VM was last updated.  
+**`port`** The port (if any) allocated for this VM.   
+**`state`** The current state of the VM.  
 ## Cached VMs
 Use these APIs for re-usable VMs. This helps you get much faster cold starts.
 
