@@ -108,7 +108,7 @@ Get logs for a build.
 ```txt title="POST"
 https://api.cakework.com/v1/image/build/[buildId]/logs
 ```
-#### Query Parameters
+#### URL query Parameters
 **`batch`** (optional) The number of rows to return. Accepts a range of 50-1000. Default: 100 rows.  
 **`order`** (optional) The order by timestamp to return the logs. Options are `newest_first` and `oldest_first`. Defaults to `oldest_first`.  
 **`pagination`** (optional) The pagination token returned by the previous call to get logs. Will be used to fetch the next batch of logs.  
@@ -194,17 +194,7 @@ Get all of the logs for a VM.
 ```txt title="GET"
 https://api.cakework.com/v1/vm/[vmId]/logs
 ```
-#### Request
-```json
-{
-    "query": "failed to",
-    "batch": 50,
-    "pagination": "XlG9SZP",
-    "from": "2023-03-07 06:12:56 UTC",
-    "to": "2023-03-08 06:11:56 UTC"
-}
-```
-
+#### URL query Parameters
 **`query`** (optional) String to look for in the logs. Case-insensitive. If this parameter is not provided, all logs for the vm are returned.  
 **`batch`** (optional) The number of rows to return. Accepts a range of 50-1000. Default: 100 rows.  
 **`order`** (optional) The order by timestamp to return the logs. Options are `newest_first` and `oldest_first`. Defaults to `oldest_first`.  
@@ -272,9 +262,9 @@ List the virtual machines which belong to you. You can filter the query.
 
 #### Endpoint
 ```txt title="GET"
-https://api.cakework.com/v1/image/[imageId]/vms
+https://api.cakework.com/v1/vms/list
 ```
-#### Query Parameters
+#### URL query Parameters
 **`imageId`** (optional) Filter VMs by which have a particular image ID deployed.    
 **`status`** (optional) Filter VMs by a particular status. Options are created, started, stopped, or destroyed.  
 
@@ -288,7 +278,7 @@ https://api.cakework.com/v1/image/[imageId]/vms
         },
     ]
 }
-```
+```d
 
 **`vms`** All the lines returned in the log.  
 &nbsp;&nbsp;&nbsp;&nbsp;`id` The ID of the VM.  
