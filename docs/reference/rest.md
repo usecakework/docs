@@ -262,7 +262,7 @@ List the virtual machines which belong to you. You can filter the query.
 
 #### Endpoint
 ```txt title="GET"
-https://api.cakework.com/v1/vms/list
+https://api.cakework.com/v1/vm/list
 ```
 #### URL query Parameters
 **`imageId`** (optional) Filter VMs by which have a particular image ID deployed.    
