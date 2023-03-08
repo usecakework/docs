@@ -108,15 +108,12 @@ Get logs for a build.
 ```txt title="POST"
 https://api.cakework.com/v1/image/build/[buildId]/logs
 ```
-#### Request
-```json
-{
-    "batch": 50,
-    "pagination": "string"
-}
-```
+#### Query Parameters
 **`batch`** (optional) The number of rows to return. Accepts a range of 50-1000. Default: 100 rows.  
+**`order`** (optional) The order by timestamp to return the logs. Options are `newest_first` and `oldest_first`. Defaults to `oldest_first`.  
 **`pagination`** (optional) The pagination token returned by the previous call to get logs. Will be used to fetch the next batch of logs.  
+**`from`** (optional) Start of time range for the log query (ISO8601-formatted string: 2022-07-19T13:32:56+0000). If the call to `getBuildLogs` returns `pagination`, `from`, and `to` fields, you must pass all 3 query parameters in the next call to `getBuildLogs` to fetch the next batch of logs.  
+**`to`** (optional) End of time range for the log query (ISO8601-formatted string: 2022-07-19T13:32:56+0000).  
 
 #### Response
 ```json
@@ -128,7 +125,9 @@ https://api.cakework.com/v1/image/build/[buildId]/logs
             "message": "string"
         },
     ],
-    "pagination": "XlG9SZP"
+    "pagination": "XlG9SZP",
+    "from": "2023-03-07 06:12:56 UTC",
+    "to": "2023-03-08 06:11:56 UTC"
 }
 ```
 
@@ -137,24 +136,8 @@ https://api.cakework.com/v1/image/build/[buildId]/logs
 &nbsp;&nbsp;&nbsp;&nbsp;`level` The log level (e.g. info/error).  
 &nbsp;&nbsp;&nbsp;&nbsp;`message` The message.  
 **`pagination`** (optional) If present, the pagination token with which you can query for more logs.  
-
-
-#### Response
-```json
-{
-    "lines": [
-        {
-            "timestamp": 1676625938460,
-            "level": "string",
-            "message": "string"
-        },
-    ]
-}
-```
-**`lines`** All the lines returned in the log.  
-&nbsp;&nbsp;&nbsp;&nbsp;`timestamp` The unix timestamp in ms.  
-&nbsp;&nbsp;&nbsp;&nbsp;`level` The log level (e.g. info/error).  
-&nbsp;&nbsp;&nbsp;&nbsp;`message` The message.  
+**`from`** (optional) If present, the next from timestamp with which you can query for more logs.  
+**`to`** (optional) If present, the next to timestamp with which you can query for more logs.  
 
 ## VMs
 Use these APIs for one-time use VMs. These have a cold start of several seconds depending on the size of your image. Each VM runs in its own VPC.
@@ -215,13 +198,19 @@ https://api.cakework.com/v1/vm/[vmId]/logs
 ```json
 {
     "query": "failed to",
-    "batch": 50
+    "batch": 50,
+    "pagination": "XlG9SZP",
+    "from": "2023-03-07 06:12:56 UTC",
+    "to": "2023-03-08 06:11:56 UTC"
 }
 ```
 
 **`query`** (optional) String to look for in the logs. Case-insensitive. If this parameter is not provided, all logs for the vm are returned.  
 **`batch`** (optional) The number of rows to return. Accepts a range of 50-1000. Default: 100 rows.  
+**`order`** (optional) The order by timestamp to return the logs. Options are `newest_first` and `oldest_first`. Defaults to `oldest_first`.  
 **`pagination`** (optional) The pagination token returned by the previous call to get logs. Will be used to fetch the next batch of logs.  
+**`from`** (optional) Start of time range for the log query (ISO8601-formatted string: 2022-07-19T13:32:56+0000). If the call to `getBuildLogs` returns `pagination`, `from`, and `to` fields, you must pass all 3 query parameters in the next call to `getBuildLogs` to fetch the next batch of logs.  
+**`to`** (optional) End of time range for the log query (ISO8601-formatted string: 2022-07-19T13:32:56+0000).  
 
 #### Response
 ```json
@@ -233,7 +222,9 @@ https://api.cakework.com/v1/vm/[vmId]/logs
             "message": "string"
         },
     ],
-    "pagination": "XlG9SZP"
+    "pagination": "XlG9SZP",
+    "from": "2023-03-07 06:12:56 UTC",
+    "to": "2023-03-08 06:11:56 UTC"
 }
 ```
 **`lines`** All the lines returned in the log.  
@@ -241,6 +232,9 @@ https://api.cakework.com/v1/vm/[vmId]/logs
 &nbsp;&nbsp;&nbsp;&nbsp;`level` The log level (e.g. info/error).  
 &nbsp;&nbsp;&nbsp;&nbsp;`message` The message.  
 **`pagination`** (optional) If present, the pagination token with which you can query for more logs.  
+**`pagination`** (optional) If present, the pagination token with which you can query for more logs.  
+**`from`** (optional) If present, the next from timestamp with which you can query for more logs.  
+**`to`** (optional) If present, the next to timestamp with which you can query for more logs.  
 
 ## Cached VMs
 Use these APIs for re-usable VMs. This helps you get much faster cold starts.
