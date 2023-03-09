@@ -101,14 +101,42 @@ https://api.cakework.com/v1/image/build/github
 ```
 **`imageId`** The id used to reference this image.  
 
+
+
+### getBuild
+Get information about a build.
+
+#### Endpoint
+```txt title="POST"
+https://api.cakework.com/v1/image/build/[buildId]
+```
+
+#### Response
+```json
+{
+    "buildId": "af3e93bb-5c9e-42d6-9c80-e841344f9a52",
+    "imageId": "32GT08QBZ30M6R0CM27PSZC34G",
+    "status": "succeeded",
+    "createdAt": "2023-02-24 20:29:40.331",
+    "updatedAt": "2023-02-24 20:29:40.331"
+}
+```
+
+**`buildId`** The build ID.  
+**`imageId`** (optional) The id used to reference this image. If the build has not yet succeeded, this will be absent.  
+**`status`** (optional) Status of the build.  
+**`createdAt`** The time at which the build was created.  
+**`createdAt`** The time at which the build was last updated. 
+
 ### getBuildLogs
 Get logs for a build.
 
 #### Endpoint
-```txt title="POST"
+```txt title="GET"
 https://api.cakework.com/v1/image/build/[buildId]/logs
 ```
 #### URL query Parameters
+**`query`** (optional) String to look for in the logs. Case-insensitive. If this parameter is not provided, all logs for the build are returned.  
 **`batch`** (optional) The number of rows to return. Accepts a range of 50-1000. Default: 100 rows.  
 **`order`** (optional) The order by timestamp to return the logs. Options are `newest_first` and `oldest_first`. Defaults to `oldest_first`.  
 **`pagination`** (optional) The pagination token returned by the previous call to get logs. Will be used to fetch the next batch of logs.  
@@ -158,7 +186,7 @@ https://api.cakework.com/v1/vm/start
     "memory": 256,
     "port": 8080,
     "envVars": { "string": "string", "string": "string" },
-    "diskSize": 3
+    "volumeGB": 3
 }
 ```
 
@@ -167,17 +195,32 @@ https://api.cakework.com/v1/vm/start
 **`memory`** The amount of memory for the VM. Can be a number between 256 and 16384.  
 **`port`** (optional) The internal port to open.  
 **`envVars`** (optional) The environment variables as a map of string to string.  
-**`diskSize`** (optional) The amount of persistent storage to attach to each VM, in GB. Can be a number between 1 and 500.  
+**`volumeGB`** (optional) The amount of persistent storage to attach to each VM, in GB. Can be a number between 1 and 500.  
 
 #### Response
 ```json
 {
-    "id": "string",
-    "hostname": "string"
+    "id": "e784996f346483",
+    "hostname": "01gv2zfbt345trtrdk6vhbeccz.fly.dev",
+    "cpu": 1,
+    "memory": 256,
+    "imageId": "01GTZHKS9CZHQ1NKZCA3LG0H4D",
+    "state": "started",
+    "volumeGB": 1,
+    "createdAt": "2023-03-09T02:43:30.243-08:00",
+    "updatedAt": "2023-03-09T02:43:30.243-08:00"
 }
 ```
 **`id`** The id used to reference this VM.  
 **`hostname`** The hostname used to access this VM.  
+**`cpu`** The number of CPUs allocated for this VM.  
+**`memory`** The amount of memory allocated for this VM, in MB.  
+**`imageId`** The image ID of the Docker image this VM is running.  
+**`state`** The current state of the VM.  
+**`createdAt`** The date and time this VM was created.  
+**`updatedAt`** The date and time this VM was last updated.  
+**`port`** (optional) The port (if any) allocated for this VM.   
+**`volumeGB`** (optional) The amount of disk storage, in GB, to attach to the VM.
 
 ### stopVM
 Stop a running VM. This destroys the VM, as the start/stopVM commands are for one-time use VMs.
@@ -244,7 +287,8 @@ https://api.cakework.com/v1/vm/[vmId]
     "createdAt": "2023-02-24 20:29:40.331",
     "updatedAt": "2023-02-24 20:29:40.331",
     "port": 8080,
-    "state": "started"
+    "state": "started",
+    "volumeGB": 1
 }
 ```
 **`id`** The id used to reference this VM.  
@@ -256,13 +300,14 @@ https://api.cakework.com/v1/vm/[vmId]
 **`updatedAt`** The date and time this VM was last updated.  
 **`port`** The port (if any) allocated for this VM.   
 **`state`** The current state of the VM.  
+**`volumeGB`** (optional). The disk size of the attached volume, in GB. If not provided, defaults to 0.  
 
 ### listVMs
 List the virtual machines which belong to you. You can filter the query.
 
 #### Endpoint
 ```txt title="GET"
-https://api.cakework.com/v1/vm/list
+https://api.cakework.com/vms
 ```
 #### URL query Parameters
 **`imageId`** (optional) Filter VMs by which have a particular image ID deployed.    
@@ -273,17 +318,33 @@ https://api.cakework.com/v1/vm/list
 {
     "vms": [
         {
-            "id": 1676625938460,
-            "status": "string"
+            "id": "148e446b7e7089",
+            "hostname": "01gtmj7swt42zpq48dqb4bgy8x.fly.dev",
+            "cpu": 1,
+            "memory": 256,
+            "imageId": "01GTK500PATD76RYGWGBTSK9KY",
+            "state": "stopped",
+            "createdAt": "2023-03-03T20:22:39.096Z",
+            "updatedAt": "2023-03-03T22:01:56.092Z"
         },
-    ]
+    ],
+    "pagination": "string"
 }
-```d
+```
 
 **`vms`** All the lines returned in the log.  
 &nbsp;&nbsp;&nbsp;&nbsp;`id` The ID of the VM.  
-&nbsp;&nbsp;&nbsp;&nbsp;`status` The status of the VM.  
+&nbsp;&nbsp;&nbsp;&nbsp;`state` The status of the VM.  
 &nbsp;&nbsp;&nbsp;&nbsp;`imageId` The image ID of the VM.  
+&nbsp;&nbsp;&nbsp;&nbsp;`hostname` The hostname used to access this VM.  
+&nbsp;&nbsp;&nbsp;&nbsp;`cpu` The number of CPUs allocated for this VM.  
+&nbsp;&nbsp;&nbsp;&nbsp;`memory` The amount of memory allocated for this VM, in MB.  
+&nbsp;&nbsp;&nbsp;&nbsp;`state` The current state of the VM.  
+&nbsp;&nbsp;&nbsp;&nbsp;`createdAt` The date and time this VM was created.  
+&nbsp;&nbsp;&nbsp;&nbsp;`updatedAt` The date and time this VM was last updated.  
+&nbsp;&nbsp;&nbsp;&nbsp;`port` (optional) The port (if any) allocated for this VM.   
+&nbsp;&nbsp;&nbsp;&nbsp;`volumeGB` (optional) The amount of disk storage, in GB, to attach to the VM.  
+**`pagination`** (optional) The pagination token with which you can fetch the next page.
 
 ## Cached VMs
 Use these APIs for re-usable VMs. This helps you get much faster cold starts.
