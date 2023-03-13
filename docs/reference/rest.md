@@ -63,9 +63,11 @@ https://api.cakework.com/v1/image/build/files
 #### Response
 ```json
 {
+    "buildId": "string",
     "imageId": "string"
 }
 ```
+**`buildId`** The build id used to reference the build.  
 **`imageId`** The id used to reference this image.  
 
 ### buildImageFromGithub
@@ -216,7 +218,7 @@ https://api.cakework.com/v1/vm/start
 **`cpu`** The number of CPUs allocated for this VM.  
 **`memory`** The amount of memory allocated for this VM, in MB.  
 **`imageId`** The image ID of the Docker image this VM is running.  
-**`state`** The current state of the VM.  
+**`state`** The current state of the VM. Can be created, started, stopped, or destroyed. 
 **`createdAt`** The date and time this VM was created.  
 **`updatedAt`** The date and time this VM was last updated.  
 **`port`** (optional) The port (if any) allocated for this VM.   
