@@ -33,7 +33,7 @@ https://api.cakework.com/v1/image/import
 **`imageId`** The id used to reference this image.  
 
 ### buildImageFromFiles
-Build a Cakework image from a list of files. This API takes all of your file contents as strings.
+Build a Cakework image from a list of files. This API takes all of your file contents as strings. This immediately returns a `buildId` with which you can call `getBuild` to get the build status and the image ID. Reach out to us if you want onboard onto our webhooks to receive build succeeded events containing the built image id and build failed events.
 
 #### Endpoint
 ```txt title="POST"
@@ -64,14 +64,18 @@ https://api.cakework.com/v1/image/build/files
 ```json
 {
     "buildId": "string",
-    "imageId": "string"
+    "status": "string",
+    "createdAt": "2023-02-24 20:29:40.331",
+    "updatedAt": "2023-02-24 20:29:40.331"
 }
 ```
-**`buildId`** The build id used to reference the build.  
-**`imageId`** The id used to reference this image.  
+**`build`** The id used to reference the build.  
+**`status`** The status of the build. Will always be `created` initialy, since `buildImageFromGithub` returns immediately before actually starting the background build job.  
+**`createdAt`** The time at which the build was created.  
+**`createdAt`** The time at which the build was last updated.  
 
 ### buildImageFromGithub
-Build a Cakework image from your user's Github repository. You supply a Dockerfile (so you can hide this from your user) and optionally a .dockerignore file.
+Build a Cakework image from your user's Github repository. You supply a Dockerfile (so you can hide this from your user) and optionally a .dockerignore file. This immediately returns a `buildId` with which you can call `getBuild` to get the build status and the image ID. Reach out to us if you want onboard onto our webhooks to receive build succeeded events containing the built image id and build failed events.
 
 #### Endpoint
 ```txt title="POST"
@@ -98,12 +102,16 @@ https://api.cakework.com/v1/image/build/github
 #### Response
 ```json
 {
-    "imageId": "string"
+    "buildId": "string",
+    "status": "string",
+    "createdAt": "2023-02-24 20:29:40.331",
+    "updatedAt": "2023-02-24 20:29:40.331"
 }
 ```
-**`imageId`** The id used to reference this image.  
-
-
+**`build`** The id used to reference the build.  
+**`status`** The status of the build. Will always be `created` initialy, since `buildImageFromGithub` returns immediately before actually starting the background build job.  
+**`createdAt`** The time at which the build was created.  
+**`createdAt`** The time at which the build was last updated.  
 
 ### getBuild
 Get information about a build.
