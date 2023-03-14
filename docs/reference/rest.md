@@ -70,7 +70,7 @@ https://api.cakework.com/v1/image/build/files
 }
 ```
 **`build`** The id used to reference the build.  
-**`status`** The status of the build. Will always be `created` initialy, since `buildImageFromGithub` returns immediately before actually starting the background build job.  
+**`status`** The status of the build. `buildImageFromGithub` will always return `created` as the status, as this API returns immediately before starting the background build job.  
 **`createdAt`** The time at which the build was created.  
 **`createdAt`** The time at which the build was last updated.  
 
@@ -134,7 +134,7 @@ https://api.cakework.com/v1/image/build/[buildId]
 
 **`buildId`** The build ID.  
 **`imageId`** (optional) The id used to reference this image. If the build has not yet succeeded, this will be absent.  
-**`status`** (optional) Status of the build.  
+**`status`** (optional) Status of the build. Can be `created`, `succeeded`, or `failed`.  
 **`createdAt`** The time at which the build was created.  
 **`createdAt`** The time at which the build was last updated. 
 
@@ -309,7 +309,7 @@ https://api.cakework.com/v1/vm/[vmId]
 **`createdAt`** The date and time this VM was created.  
 **`updatedAt`** The date and time this VM was last updated.  
 **`port`** The port (if any) allocated for this VM.   
-**`state`** The current state of the VM.  
+**`state`** The current state of the VM. Can be `created`, `started`, `stopped`, and `destroyed`.  
 **`volumeGB`** (optional). The disk size of the attached volume, in GB. If not provided, defaults to 0.  
 
 ### listVMs
