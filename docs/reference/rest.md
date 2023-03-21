@@ -226,11 +226,11 @@ https://api.cakework.com/v1/vm/start
 **`cpu`** The number of CPUs allocated for this VM.  
 **`memory`** The amount of memory allocated for this VM, in MB.  
 **`imageId`** The image ID of the Docker image this VM is running.  
-**`state`** The current state of the VM. Can be created, started, stopped, or destroyed. 
+**`state`** The current state of the VM. Can be created, started, stopped, or destroyed.  
 **`createdAt`** The date and time this VM was created.  
 **`updatedAt`** The date and time this VM was last updated.  
 **`port`** (optional) The port (if any) allocated for this VM.   
-**`volumeGB`** (optional) The amount of disk storage, in GB, to attach to the VM.
+**`volumeGB`** (optional) The amount of disk storage, in GB, to attach to the VM.  
 
 ### stopVM
 Stop a running VM. This destroys the VM, as the start/stopVM commands are for one-time use VMs.
@@ -389,12 +389,27 @@ https://api.cakework.com/v1/vm/cache
 #### Response
 ```json
 {
-    "id": "string",
-    "hostname": "string"
+    "id": "e784996f346483",
+    "hostname": "01gv2zfbt345trtrdk6vhbeccz.fly.dev",
+    "cpu": 1,
+    "memory": 256,
+    "imageId": "01GTZHKS9CZHQ1NKZCA3LG0H4D",
+    "state": "stopped",
+    "volumeGB": 1,
+    "createdAt": "2023-03-09T02:43:30.243-08:00",
+    "updatedAt": "2023-03-09T02:43:30.243-08:00"
 }
 ```
-**`id`** The id used to reference this cached VM.  
-**`hostname`** The hostname used to access this cached VM.  
+**`id`** The id used to reference this VM.  
+**`hostname`** The hostname used to access this VM.  
+**`cpu`** The number of CPUs allocated for this VM.  
+**`memory`** The amount of memory allocated for this VM, in MB.  
+**`imageId`** The image ID of the Docker image this VM is running.  
+**`state`** The current state of the VM. Will be `stopped` after the call to cache the VM.  
+**`createdAt`** The date and time this VM was created.  
+**`updatedAt`** The date and time this VM was last updated.  
+**`port`** (optional) The port (if any) allocated for this VM.   
+**`volumeGB`** (optional) The amount of disk storage, in GB, to attach to the VM.  
 
 ### startCachedVM
 Start a cached VM.
