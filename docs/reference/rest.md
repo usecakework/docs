@@ -435,31 +435,6 @@ Destroy a cached VM.
 https://api.cakework.com/v1/vm/cached/[cachedVmId]/destroy
 ```
 
-### getCachedVMLogs
-Get all of the logs for a cached VM. This currently just gets logs for all time and has no pagination or filtering.
-
-#### Endpoint
-```txt title="GET"
-https://api.cakework.com/v1/vm/cached/[id]/logs
-```
-
-#### Response
-```json
-{
-    "lines": [
-        {
-            "timestamp": 1676625938460,
-            "level": "string",
-            "message": "string"
-        },
-    ]
-}
-```
-**`lines`** All the lines returned in the log.  
-&nbsp;&nbsp;&nbsp;&nbsp;`timestamp` The unix timestamp in ms.  
-&nbsp;&nbsp;&nbsp;&nbsp;`level` The log level (e.g. info/error).  
-&nbsp;&nbsp;&nbsp;&nbsp;`message` The message.  
-
 ## Snippets
 Use these APIs to run a snippet of code. We infer dependencies from the code each time you run the snippet.
 
